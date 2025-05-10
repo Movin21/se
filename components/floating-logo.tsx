@@ -10,7 +10,7 @@ export const FloatingLogo = () => {
         transformStyle: "preserve-3d",
         transform: "rotateY(-20deg) rotateX(10deg)",
       }}
-      className="rounded-[24px] bg-transparent"
+      className="bg-transparent"
     >
       <motion.div
         initial={{
@@ -25,20 +25,23 @@ export const FloatingLogo = () => {
           duration: 2,
           ease: "easeInOut",
         }}
-        className="relative h-80 w-80 rounded-[24px] bg-transparent"
+        className="relative h-80 w-80 bg-transparent"
       >
-        <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-transparent">
+        <div className="relative z-0 grid h-full w-full place-content-center bg-transparent">
           <Image
             src="/images/logo.png"
             width={300}
             height={300}
             alt="SLIIT Software Engineering Student Community Logo"
-            className="object-contain"
+            className="object-contain transform rotate-y-[-20deg] rotate-x-[10deg]"
             priority
             unoptimized
+            style={{
+              filter: "drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.2))",
+            }}
           />
 
-          <div className="absolute -bottom-72 left-[50%] h-96 w-96 -translate-x-[50%] rounded-full bg-primary/10 dark:bg-primary/20 blur-3xl" />
+          <div className="absolute -bottom-72 left-[50%] h-96 w-96 -translate-x-[50%] rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl" />
         </div>
       </motion.div>
     </div>

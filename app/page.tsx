@@ -4,19 +4,40 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, ChevronDown } from "lucide-react"
-import { EventsCarousel, WebinarsCarousel } from "@/components/event-carousel"
 import BlogPostCarousel from "@/components/blog-post-carousel"
 import RibbonLogos from "@/components/podcast-section"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { FloatingLogo } from "@/components/floating-logo"
+import { useEffect } from "react"
 
 export default function Home() {
+  useEffect(() => {
+    // Load Instagram embed script
+    const script = document.createElement("script")
+    script.src = "//www.instagram.com/embed.js"
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+
+    // Process embeds when script loads
+    script.onload = () => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process()
+      }
+    }
+
+    return () => {
+      // Clean up script when component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
+    }
+  }, [])
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+      <section id="hero" className="w-full py-12 md:py-24 lg:py-32 bg-background relative overflow-hidden">
         {/* Background Text Animation */}
         <div className="absolute inset-0 overflow-hidden">
           <WatermarkWrapper />
@@ -57,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="w-full py-12 md:py-24 bg-muted">
+      <section id="vision-mission" className="w-full py-12 md:py-24 bg-muted">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
@@ -136,78 +157,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Events & Webinars Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      {/* Industry Visit Partners Section */}
+      <section id="partners">
+        <RibbonLogos />
+      </section>
+
+      {/* What We Do Section (formerly Blog Section) */}
+      <section id="what-we-do" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">What We Do</h2>
             <p className="max-w-[600px] text-muted-foreground text-sm md:text-base mb-6">
-              We foster innovation and collaboration through hackathons, workshops, and industry partnerships,
-              empowering students to become part of the global tech community.
+              We organize workshops, hackathons, tech talks, and community projects to help students develop their
+              skills and build a strong network in the software engineering field.
             </p>
           </div>
-          <Tabs defaultValue="events" className="w-full">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-              <TabsList className="grid w-full max-w-md grid-cols-2 relative overflow-hidden">
-                <TabsTrigger value="events" className="relative z-10 transition-all duration-300">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full">
-                    Events
-                  </motion.div>
-                </TabsTrigger>
-                <TabsTrigger value="webinars" className="relative z-10 transition-all duration-300">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full">
-                    Webinars
-                  </motion.div>
-                </TabsTrigger>
-              </TabsList>
-            </div>
-            <AnimatePresence mode="wait">
-              <TabsContent value="events" className="space-y-4" asChild>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <EventsCarousel />
-                  <div className="flex justify-center mt-8">
-                    <Button variant="outline">
-                      View All Events <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </motion.div>
-              </TabsContent>
-
-              <TabsContent value="webinars" className="space-y-4" asChild>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <WebinarsCarousel />
-                  <div className="flex justify-center mt-8">
-                    <Button variant="outline">
-                      View All Webinars <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </motion.div>
-              </TabsContent>
-            </AnimatePresence>
-          </Tabs>
-        </div>
-      </section>
-
-      {/* Industry Visit Partners Section */}
-      <RibbonLogos />
-
-      {/* Blog Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-        <div className="container px-4 md:px-6">
-          <BlogPostCarousel />
+          <div className="touch-pan-x overflow-x-auto">
+            <BlogPostCarousel />
+          </div>
           <div className="flex justify-center mt-8">
             <Button variant="outline">
-              View All Posts <ArrowRight className="ml-2 h-4 w-4" />
+              View All Activities <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -324,8 +294,8 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Blog
+                  <Link href="/#what-we-do" className="text-muted-foreground hover:text-primary">
+                    What We Do
                   </Link>
                 </li>
                 <li>

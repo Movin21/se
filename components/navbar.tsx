@@ -23,42 +23,36 @@ export default function Navbar() {
           </Link>
         </div>
         <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/#hero" className="text-sm font-medium transition-colors hover:text-primary">
             Home
           </Link>
           <Link
-            href="/about"
+            href="/#vision-mission"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            About
+            Vision & Mission
           </Link>
           <Link
-            href="/events"
+            href="/#what-we-do"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            Events
+            What We Do
           </Link>
           <Link
-            href="/projects"
+            href="/#partners"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            Projects
+            Partners
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <Link
+            href="/#blog"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          >
             Blog
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            Contact
           </Link>
         </nav>
         <div className="flex items-center gap-2">
           <ModeToggle />
-          <Button variant="default" size="sm" className="hidden md:flex">
-            Join Us
-          </Button>
           <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             <span className="sr-only">Toggle menu</span>
@@ -69,50 +63,40 @@ export default function Navbar() {
         <div className="container md:hidden">
           <nav className="flex flex-col space-y-3 pb-3">
             <Link
-              href="/"
+              href="/#hero"
               className="text-sm font-medium transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
-              href="/about"
+              href="/#vision-mission"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              Vision & Mission
             </Link>
             <Link
-              href="/events"
+              href="/#what-we-do"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
-              Events
+              What We Do
             </Link>
             <Link
-              href="/projects"
+              href="/#partners"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
-              Projects
+              Partners
             </Link>
             <Link
-              href="/blog"
+              href="/#blog"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
             </Link>
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Button variant="default" size="sm" className="w-full">
-              Join Us
-            </Button>
           </nav>
         </div>
       )}
