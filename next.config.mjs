@@ -7,10 +7,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    unoptimized: true,
     domains: [],
     remotePatterns: [],
-    unoptimized: process.env.NODE_ENV === 'production',
   },
+  output: 'export',
+  distDir: 'dist',
 }
 
 export default nextConfig

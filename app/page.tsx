@@ -189,7 +189,7 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-4">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <Image src="/images/logo.png" alt="SLIIT SEC Logo" width={120} height={60} priority />
+                <Image src="/images/logo.png" alt="SLIIT SEC Logo" width={120} height={60} priority unoptimized />
               </div>
               <p className="text-sm text-muted-foreground">
                 Welcome to SLIIT Software Engineering Student Community. We're a group of passionate students dedicated
