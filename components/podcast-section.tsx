@@ -1,28 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import {
-  SiMeta,
-  SiGoogle,
-  SiAmazon,
-  SiLinkedin,
-  SiOracle,
-  SiCisco,
-  SiIntel,
-  SiSamsung,
-  SiAdobe,
-  SiNvidia,
-  SiApple,
-  SiDell,
-  SiHp,
-  SiLenovo,
-  SiRedhat,
-  SiCanonical,
-  SiSiemens,
-  SiSony,
-  SiToshiba,
-  SiSap,
-} from "react-icons/si"
+import Image from "next/image"
+import { getPartnerLogo, getPartnerDisplayName, getAllPartners } from "@/utils/icons"
 
 const RibbonLogos = () => {
   return (
@@ -41,31 +21,31 @@ const RibbonLogos = () => {
 
       <div className="flex translate-y-[20%] rotate-[3deg] scale-110 overflow-hidden border-y border-primary/20 bg-muted/50">
         <TranslateWrapper>
-          <LogoItemsTop />
+          <LogoItems />
         </TranslateWrapper>
         <TranslateWrapper>
-          <LogoItemsTop />
+          <LogoItems />
         </TranslateWrapper>
         <TranslateWrapper>
-          <LogoItemsTop />
+          <LogoItems />
         </TranslateWrapper>
       </div>
       <div className="flex -translate-y-[20%] -rotate-[3deg] scale-110 overflow-hidden border-y border-primary/20 bg-muted/50">
         <TranslateWrapper reverse={true}>
-          <LogoItemsBottom />
+          <LogoItems />
         </TranslateWrapper>
         <TranslateWrapper reverse={true}>
-          <LogoItemsBottom />
+          <LogoItems />
         </TranslateWrapper>
         <TranslateWrapper reverse={true}>
-          <LogoItemsBottom />
+          <LogoItems />
         </TranslateWrapper>
       </div>
 
       <div className="container px-4 md:px-6 mt-16">
         <div className="flex justify-center">
           <a
-            href="#"
+            href="mailto:sliitsecommunity@gmail.com"
             className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
           >
             Become a Partner
@@ -89,42 +69,32 @@ const TranslateWrapper = ({ children, reverse = false }) => {
   )
 }
 
-const LogoItem = ({ Icon, name }) => {
+const LogoItem = ({ name }) => {
+  const logoPath = getPartnerLogo(name)
+  const displayName = getPartnerDisplayName(name)
+
   return (
     <div className="flex items-center justify-center gap-4 px-4 py-4 text-foreground transition-colors hover:bg-background md:py-6">
-      <Icon className="text-3xl md:text-4xl" />
-      <span className="whitespace-nowrap text-lg font-semibold md:text-xl">{name}</span>
+      {logoPath && (
+        <div className="relative h-12 w-32 flex items-center justify-center">
+          <Image
+            src={logoPath || "/placeholder.svg"}
+            alt={`${displayName} logo`}
+            fill
+            className="object-contain"
+            unoptimized
+          />
+        </div>
+      )}
     </div>
   )
 }
 
-const LogoItemsTop = () => (
+const LogoItems = () => (
   <>
-    <LogoItem Icon={SiMeta} name="Meta" />
-    <LogoItem Icon={SiGoogle} name="Google" />
-    <LogoItem Icon={SiAmazon} name="Amazon" />
-    <LogoItem Icon={SiLinkedin} name="LinkedIn" />
-    <LogoItem Icon={SiOracle} name="Oracle" />
-    <LogoItem Icon={SiCisco} name="Cisco" />
-    <LogoItem Icon={SiIntel} name="Intel" />
-    <LogoItem Icon={SiSamsung} name="Samsung" />
-    <LogoItem Icon={SiAdobe} name="Adobe" />
-    <LogoItem Icon={SiNvidia} name="NVIDIA" />
-  </>
-)
-
-const LogoItemsBottom = () => (
-  <>
-    <LogoItem Icon={SiApple} name="Apple" />
-    <LogoItem Icon={SiDell} name="Dell" />
-    <LogoItem Icon={SiHp} name="HP" />
-    <LogoItem Icon={SiLenovo} name="Lenovo" />
-    <LogoItem Icon={SiRedhat} name="Red Hat" />
-    <LogoItem Icon={SiCanonical} name="Canonical" />
-    <LogoItem Icon={SiSiemens} name="Siemens" />
-    <LogoItem Icon={SiSony} name="Sony" />
-    <LogoItem Icon={SiToshiba} name="Toshiba" />
-    <LogoItem Icon={SiSap} name="SAP" />
+    {getAllPartners().map((company) => (
+      <LogoItem key={company.name} name={company.name} />
+    ))}
   </>
 )
 

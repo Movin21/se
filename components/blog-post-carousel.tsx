@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import useMeasure from "react-use-measure"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { getBlogPosts } from "@/utils/content-helpers"
 
 const CARD_WIDTH = 350
 const MARGIN = 20
@@ -27,6 +28,8 @@ const BlogPostCarousel = () => {
   const CARD_BUFFER = width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1
 
   const CAN_SHIFT_LEFT = offset < 0
+
+  const posts = getBlogPosts()
 
   const CAN_SHIFT_RIGHT = Math.abs(offset) < CARD_SIZE * (posts.length - CARD_BUFFER)
 
@@ -223,67 +226,5 @@ const Post = ({ imgUrl, author, title, tags, description }) => {
     </div>
   )
 }
-
-const posts = [
-  {
-    id: 1,
-    imgUrl: "/software-engineering-workshop.png",
-    author: "SESC Team",
-    title: "Technical Workshops",
-    tags: ["Workshops", "Technical", "Skills"],
-    description:
-      "We organize hands-on workshops on various technologies and tools to help students enhance their technical skills.",
-  },
-  {
-    id: 2,
-    imgUrl: "/tech-conference.png",
-    author: "SESC Team",
-    title: "Hackathons",
-    tags: ["Hackathon", "Competition", "Innovation"],
-    description:
-      "Our hackathons provide a platform for students to showcase their problem-solving skills and creativity.",
-  },
-  {
-    id: 3,
-    imgUrl: "/coding-workshop.png",
-    author: "SESC Team",
-    title: "Coding Competitions",
-    tags: ["Coding", "Competition", "Algorithms"],
-    description: "Regular coding competitions to improve algorithmic thinking and programming skills.",
-  },
-  {
-    id: 4,
-    imgUrl: "/software-engineering-collaboration.png",
-    author: "SESC Team",
-    title: "Industry Collaborations",
-    tags: ["Industry", "Networking", "Career"],
-    description:
-      "We collaborate with industry partners to provide students with exposure to real-world software engineering practices.",
-  },
-  {
-    id: 5,
-    imgUrl: "/machine-learning-concept.png",
-    author: "SESC Team",
-    title: "Research Projects",
-    tags: ["Research", "Innovation", "Projects"],
-    description: "Opportunities to work on research projects in emerging areas of software engineering.",
-  },
-  {
-    id: 6,
-    imgUrl: "/ui-ux-design-process.png",
-    author: "SESC Team",
-    title: "Design Thinking Workshops",
-    tags: ["Design", "UI/UX", "Creativity"],
-    description: "Workshops focused on design thinking and user experience design for software applications.",
-  },
-  {
-    id: 7,
-    imgUrl: "/cybersecurity-network.png",
-    author: "SESC Team",
-    title: "Cybersecurity Challenges",
-    tags: ["Security", "CTF", "Ethical Hacking"],
-    description: "Capture the flag and other cybersecurity challenges to promote awareness about security practices.",
-  },
-]
 
 export default BlogPostCarousel

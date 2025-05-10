@@ -44,12 +44,6 @@ export default function Navbar() {
           >
             Partners
           </Link>
-          <Link
-            href="/#blog"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            Blog
-          </Link>
         </nav>
         <div className="flex items-center gap-2">
           <ModeToggle />
@@ -89,13 +83,6 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Partners
-            </Link>
-            <Link
-              href="/#blog"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
             </Link>
           </nav>
         </div>
