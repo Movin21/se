@@ -66,6 +66,14 @@
   ],
   "activities": [
     {
+      "id": 8,
+      "imgUrl": "/images/blog-cover-creative-software.png",
+      "author": "SESC Team",
+      "title": "Bridging Academia and Industry: Industry Visit to Creative Software",
+      "tags": ["Industry Visit", "Networking", "Career Development"],
+      "description": "Our students had the opportunity to visit Creative Software, gaining valuable insights into industry practices and potential career paths in software engineering."
+    },
+    {
       "id": 1,
       "imgUrl": "/software-engineering-workshop.png",
       "author": "SESC Team",

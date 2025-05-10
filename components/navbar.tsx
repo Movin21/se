@@ -33,16 +33,18 @@ export default function Navbar() {
             Vision & Mission
           </Link>
           <Link
-            href="/#what-we-do"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            What We Do
-          </Link>
-          <Link
             href="/#partners"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Partners
+          </Link>
+          <Link
+            href="https://blog.sliitsesc.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          >
+            Blog
           </Link>
         </nav>
         <div className="flex items-center gap-2">
@@ -71,18 +73,20 @@ export default function Navbar() {
               Vision & Mission
             </Link>
             <Link
-              href="/#what-we-do"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              What We Do
-            </Link>
-            <Link
               href="/#partners"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               Partners
+            </Link>
+            <Link
+              href="https://blog.sliitsesc.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
             </Link>
           </nav>
         </div>
