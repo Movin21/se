@@ -12,11 +12,11 @@ import type { TranslateWrapperProps } from "@/types"
  */
 const IndustryPartners = () => {
   return (
-    <section className="w-full py-8 md:py-16 lg:py-20 bg-primary/5 dark:bg-primary/10 overflow-hidden">
+    <section className="w-full py-8 md:py-16 lg:py-20 bg-background overflow-hidden">
       <div className="container px-4 md:px-6 mb-6">
         <div className="flex flex-col items-center justify-center space-y-3 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-            Industry Visit Partners
+            Industry Partners
           </h2>
           <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
             We collaborate with leading tech companies to provide our students with valuable industry exposure and

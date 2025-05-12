@@ -58,6 +58,48 @@
         "logoImage": "/logos/gtn-logo.png",
         "displayName": "GTN",
         "type": "image"
+      },
+      {
+        "name": "Tiqri",
+        "logoImage": "/logos/tiqri-logo.png",
+        "displayName": "TIQRI",
+        "type": "image"
+      },
+      {
+        "name": "AxiataDigitalLabs",
+        "logoImage": "/logos/axiata-digital-labs-logo.png",
+        "displayName": "Axiata Digital Labs",
+        "type": "image"
+      },
+      {
+        "name": "Verdentra",
+        "logoImage": "/logos/verdentra-logo.png",
+        "displayName": "Verdentra",
+        "type": "image"
+      },
+      {
+        "name": "SoftSora",
+        "logoImage": "/logos/softsora-logo.png",
+        "displayName": "SoftSora",
+        "type": "image"
+      },
+      {
+        "name": "Surge",
+        "logoImage": "/logos/surge-logo.png",
+        "displayName": "Surge",
+        "type": "image"
+      },
+      {
+        "name": "Perituza",
+        "logoImage": "/logos/perituza-logo.png",
+        "displayName": "Perituza",
+        "type": "image"
+      },
+      {
+        "name": "VitalHub",
+        "logoImage": "/logos/vitalhub-logo.png",
+        "displayName": "VitalHub",
+        "type": "image"
       }
     ]
   },

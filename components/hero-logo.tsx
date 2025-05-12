@@ -11,14 +11,14 @@ import Image from "next/image"
 export const HeroLogo = () => {
   return (
     <div className="relative">
-      <div className="relative h-80 w-80 md:h-96 md:w-96 lg:h-[450px] lg:w-[450px]">
+      <div className="relative h-64 w-64 md:h-96 md:w-96 lg:h-[450px] lg:w-[450px]">
         <div className="relative z-0 grid h-full w-full place-content-center">
           <Image
             src="/images/logo.png"
             width={300}
             height={300}
             alt="SLIIT Software Engineering Student Community Logo"
-            className="object-contain md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]"
+            className="object-contain w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]"
             priority
             unoptimized
             style={{
