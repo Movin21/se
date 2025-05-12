@@ -1,43 +1,29 @@
-import blogPartnersData from "@/content/blog-partners-data.json"
+import blogData from "@/content/blog-partners-data.json"
 
+/**
+ * Get all blog posts
+ */
 export function getBlogPosts() {
-  return blogPartnersData.blogPosts
+  return blogData.posts || []
 }
 
-export function getActivities() {
-  return blogPartnersData.activities
+/**
+ * Get a specific blog post by ID
+ */
+export function getBlogPostById(id: string) {
+  return blogData.posts?.find((post) => post.id === id) || null
 }
 
+/**
+ * Get all partners
+ */
 export function getPartners() {
-  return blogPartnersData.partners
+  return blogData.partners || []
 }
 
-export function getTopRowPartners() {
-  return blogPartnersData.partners.topRow
+/**
+ * Get a specific partner by ID
+ */
+export function getPartnerById(id: string) {
+  return blogData.partners?.find((partner) => partner.id === id) || null
 }
-
-export function getBottomRowPartners() {
-  return blogPartnersData.partners.bottomRow
-}
-
-export function getAllPartnersList() {
-  return [...blogPartnersData.partners.topRow, ...blogPartnersData.partners.bottomRow]
-}
-
-export function getBlogPostById(id: number) {
-  return blogPartnersData.blogPosts.find((post) => post.id === id)
-}
-
-export function getActivityById(id: number) {
-  return blogPartnersData.activities.find((activity) => activity.id === id)
-}
-
-export function getBlogPostsByTag(tag: string) {
-  return blogPartnersData.blogPosts.filter((post) => post.tags.includes(tag))
-}
-
-export function getActivitiesByTag(tag: string) {
-  return blogPartnersData.activities.filter((activity) => activity.tags.includes(tag))
-}
-
-export default blogPartnersData

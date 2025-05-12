@@ -3,8 +3,14 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { getPartnerLogo, getPartnerDisplayName, getAllPartners } from "@/utils/icons"
+import type { TranslateWrapperProps } from "@/types"
 
-const RibbonLogos = () => {
+/**
+ * IndustryPartners Component
+ *
+ * Displays a section showcasing industry partners with animated logo ribbons
+ */
+const IndustryPartners = () => {
   return (
     <section className="w-full py-8 md:py-16 lg:py-20 bg-background overflow-hidden">
       <div className="container px-4 md:px-6 mb-6">
@@ -56,12 +62,12 @@ const RibbonLogos = () => {
   )
 }
 
-const TranslateWrapper = ({ children, reverse = false }) => {
+const TranslateWrapper = ({ children, reverse = false, duration = 50 }: TranslateWrapperProps) => {
   return (
     <motion.div
       initial={{ translateX: reverse ? "-100%" : "0%" }}
       animate={{ translateX: reverse ? "0%" : "-100%" }}
-      transition={{ duration: 50, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      transition={{ duration, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
       className="flex px-2"
     >
       {children}
@@ -69,7 +75,11 @@ const TranslateWrapper = ({ children, reverse = false }) => {
   )
 }
 
-const LogoItem = ({ name }) => {
+interface LogoItemProps {
+  name: string
+}
+
+const LogoItem = ({ name }: LogoItemProps) => {
   const logoPath = getPartnerLogo(name)
   const displayName = getPartnerDisplayName(name)
 
@@ -98,4 +108,4 @@ const LogoItems = () => (
   </>
 )
 
-export default RibbonLogos
+export default IndustryPartners

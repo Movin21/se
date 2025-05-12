@@ -4,20 +4,18 @@ import * as LucideIcons from "lucide-react"
 import * as SiIcons from "react-icons/si"
 import * as BsIcons from "react-icons/bs"
 
-type IconProps = {
+interface IconProps {
   name: string
   className?: string
   size?: number
   color?: string
 }
 
-// Map of icon libraries
-const iconLibraries = {
-  Si: SiIcons,
-  Bs: BsIcons,
-  Lucide: LucideIcons,
-}
-
+/**
+ * Icon Component
+ *
+ * Renders an icon from various icon libraries based on the name prefix
+ */
 export function Icon({ name, className, size, color }: IconProps) {
   // Determine which library to use based on prefix
   let IconComponent
@@ -39,35 +37,56 @@ export function Icon({ name, className, size, color }: IconProps) {
   return <IconComponent className={className} size={size} color={color} />
 }
 
-// Helper functions to get icons by section
-export function getPartnerIcon(partnerName: string) {
+/**
+ * Get the icon name for a partner
+ */
+export function getPartnerIcon(partnerName: string): string | null {
   const partner = iconsData.partners.companies.find((company) => company.name === partnerName)
   return partner && partner.type !== "image" ? partner.icon : null
 }
 
-export function getPartnerLogo(partnerName: string) {
+/**
+ * Get the logo path for a partner
+ */
+export function getPartnerLogo(partnerName: string): string | null {
   const partner = iconsData.partners.companies.find((company) => company.name === partnerName)
   return partner && partner.type === "image" ? partner.logoImage : null
 }
 
-export function getPartnerDisplayName(partnerName: string) {
+/**
+ * Get the display name for a partner
+ */
+export function getPartnerDisplayName(partnerName: string): string {
   const partner = iconsData.partners.companies.find((company) => company.name === partnerName)
   return partner ? partner.displayName : partnerName
 }
 
+/**
+ * Get social icon data
+ */
 export function getSocialIcon(socialName: string) {
   return iconsData.footer.social[socialName.toLowerCase()]
 }
 
+/**
+ * Get theme icon name
+ */
 export function getThemeIcon(theme: "light" | "dark", iconName: string) {
   return iconsData.themeToggle[theme][iconName]
 }
 
+/**
+ * Get UI icon name
+ */
 export function getUIIcon(iconName: string) {
   return iconsData.ui[iconName]
 }
 
-// Function to render SVG paths for custom icons
+/**
+ * SvgIcon Component
+ *
+ * Renders SVG paths for custom icons
+ */
 export function SvgIcon({ paths, className }: { paths: string[]; className?: string }) {
   return (
     <svg
@@ -81,6 +100,7 @@ export function SvgIcon({ paths, className }: { paths: string[]; className?: str
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
     >
       {paths.map((path, index) => {
         // Parse the path string to determine the element type and attributes
@@ -129,7 +149,11 @@ export function SvgIcon({ paths, className }: { paths: string[]; className?: str
   )
 }
 
-// Logo component for partner logos
+/**
+ * PartnerLogo Component
+ *
+ * Displays a partner logo
+ */
 export function PartnerLogo({ name, className }: { name: string; className?: string }) {
   const logoPath = getPartnerLogo(name)
   const displayName = getPartnerDisplayName(name)
@@ -150,7 +174,10 @@ export function PartnerLogo({ name, className }: { name: string; className?: str
   )
 }
 
-export function getAllPartners() {
+/**
+ * Get all partners
+ */
+export function getAllPartners(): any[] {
   return iconsData.partners.companies
 }
 
