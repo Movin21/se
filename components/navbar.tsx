@@ -28,6 +28,7 @@ export default function Navbar() {
   const navLinks: NavLink[] = [
     { href: "/#hero", label: "Home" },
     { href: "/#vision-mission", label: "Vision & Mission" },
+    { href: "/#board", label: "Board Members" },
     { href: "/#partners", label: "Partners" },
     {
       href: "https://blog.sliitsesc.org/",

@@ -8,6 +8,7 @@ import HeroLogo from "@/components/hero-logo"
 import SocialLinks from "@/components/social-links"
 import { WatermarkWrapper } from "@/components/watermark"
 import Footer from "@/components/footer"
+import BoardMembers from "@/components/board-members"
 
 /**
  * Home Page Component
@@ -91,6 +92,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Board Members Section */}
+      <BoardMembers initialYear="2024-2025" />
 
       {/* Industry Visit Partners Section */}
       <section id="partners">

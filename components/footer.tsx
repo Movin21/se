@@ -21,6 +21,7 @@ export default function Footer() {
   const usefulLinks: NavLink[] = [
     { href: "/#hero", label: "Home" },
     { href: "/#vision-mission", label: "Vision & Mission" },
+    { href: "/#board", label: "Board Members" },
     { href: "/#partners", label: "Partners" },
     { href: "https://blog.sliitsesc.org/", label: "Blog", isExternal: true },
     { href: "mailto:sliitsecommunity@gmail.com", label: "Contact" },
