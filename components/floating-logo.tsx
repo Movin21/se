@@ -8,32 +8,17 @@ export const FloatingLogo = () => {
     <div
       style={{
         transformStyle: "preserve-3d",
-        transform: "rotateY(-20deg) rotateX(10deg)",
       }}
       className="bg-transparent"
     >
-      <motion.div
-        initial={{
-          transform: "translateZ(8px) translateY(-2px)",
-        }}
-        animate={{
-          transform: "translateZ(32px) translateY(-8px)",
-        }}
-        transition={{
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "mirror",
-          duration: 2,
-          ease: "easeInOut",
-        }}
-        className="relative h-80 w-80 md:h-96 md:w-96 lg:h-[450px] lg:w-[450px] bg-transparent"
-      >
+      <motion.div className="relative h-80 w-80 md:h-96 md:w-96 lg:h-[450px] lg:w-[450px] bg-transparent">
         <div className="relative z-0 grid h-full w-full place-content-center bg-transparent">
           <Image
             src="/images/logo.png"
             width={300}
             height={300}
             alt="SLIIT Software Engineering Student Community Logo"
-            className="object-contain transform rotate-y-[-20deg] rotate-x-[10deg] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]"
+            className="object-contain md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]"
             priority
             unoptimized
             style={{
