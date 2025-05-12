@@ -74,7 +74,7 @@ const LogoItem = ({ name }) => {
   const displayName = getPartnerDisplayName(name)
 
   return (
-    <div className="flex items-center justify-center gap-4 px-4 py-4 text-foreground transition-colors hover:bg-background md:py-6">
+    <div className="flex items-center justify-center gap-4 px-4 py-4 text-foreground transition-colors md:py-6">
       {logoPath && (
         <div className="relative h-12 w-32 flex items-center justify-center">
           <Image

@@ -10,6 +10,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "SLIIT Software Engineering Student Community",
   description: "Official website of the SLIIT Software Engineering Student Community",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
     generator: 'v0.dev'
 }
 
@@ -20,6 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/images/logo.png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Navbar />
