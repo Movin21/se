@@ -139,8 +139,9 @@ const VisionCard = () => (
         </div>
         <h3 className="text-2xl font-bold">Our Vision</h3>
         <p className="text-muted-foreground">
-          To be the leading software engineering student community that empowers students to become innovative, ethical,
-          and industry-ready professionals who contribute to the advancement of technology and society.
+          To cultivate an inclusive community — open to software-engineering students of all backgrounds and skill
+          levels — where hands-on experience, mentorship, and ethical grounding prepare graduates to become innovative,
+          industry-ready professionals who drive technological progress and deliver meaningful benefits to society.
         </p>
       </div>
     </CardContent>
@@ -179,9 +180,10 @@ const MissionCard = () => (
         </div>
         <h3 className="text-2xl font-bold">Our Mission</h3>
         <p className="text-muted-foreground">
-          To foster a collaborative learning environment that enhances technical skills, promotes knowledge sharing,
-          encourages research and innovation, and builds a strong network of software engineering professionals through
-          workshops, hackathons, industry partnerships, and community projects.
+          Provide a collaborative learning environment that sharpens technical skills, fuels knowledge sharing, and
+          sparks research and innovation through monthly workshops, annual hackathons, ongoing community projects, and
+          strategic industry partnerships, thereby building a diverse, well-connected network of future
+          software-engineering professionals.
         </p>
       </div>
     </CardContent>
