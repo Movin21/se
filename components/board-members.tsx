@@ -11,39 +11,25 @@ interface BoardMember {
   image: string
 }
 
-interface BoardMembersProps {
-  initialYear?: string
-}
-
-export default function BoardMembers({ initialYear }: BoardMembersProps) {
+export default function BoardMembers() {
   const years = boardData.years
-  const defaultYear = initialYear || years[0].id
+  const defaultYear = years[0].id
 
   const [selectedYear, setSelectedYear] = useState(defaultYear)
-  const [members, setMembers] = useState<BoardMember[]>(boardData.members[defaultYear as keyof typeof boardData.members] || [])
-  const [isLoading, setIsLoading] = useState(false)
+  const [members, setMembers] = useState<BoardMember[]>(boardData.members[defaultYear as keyof typeof boardData.members])
 
   useEffect(() => {
-    setIsLoading(true)
-    const timer = setTimeout(() => {
-      setMembers(boardData.members[selectedYear as keyof typeof boardData.members] || [])
-      setIsLoading(false)
-    }, 300)
-
-    return () => clearTimeout(timer)
+    setMembers(boardData.members[selectedYear as keyof typeof boardData.members] || [])
   }, [selectedYear])
 
   return (
-    <section
-      id="board"
-      className="w-full py-12 md:py-24 bg-background text-foreground light:bg-blue-500 light:text-white"
-    >
+    <section id="board" className="w-full py-12 md:py-24 bg-background text-foreground">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
             Our Board Members
           </h2>
-          <p className="max-w-[700px] md:text-xl/relaxed mb-8">
+          <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed mb-8">
             Meet the dedicated team leading the SLIIT Software Engineering Student Community
           </p>
 
@@ -64,6 +50,7 @@ export default function BoardMembers({ initialYear }: BoardMembersProps) {
               </button>
             ))}
           </div>
+          <br></br>
 
           {/* Board members grid */}
           <AnimatePresence mode="wait">
@@ -73,41 +60,16 @@ export default function BoardMembers({ initialYear }: BoardMembersProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="w-full"
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8"
             >
-              {isLoading ? (
-                <div className="flex justify-center items-center h-96">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-                  {members.map((member) => (
-                    <BoardMemberCard key={member.id} member={member} />
-                  ))}
-                </div>
-              )}
+              {members.map((member) => (
+                <BoardMemberCard key={member.id} member={member} />
+              ))}
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
     </section>
-  )
-}
-
-function LeadershipMemberCard({ member }: { member: BoardMember }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.3 }}
-      className="flex flex-col items-center text-center"
-    >
-      <div className="relative w-28 h-28 md:w-36 md:h-36 mb-3 overflow-hidden rounded-full border-2 border-primary/10">
-        <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
-      </div>
-      <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.position}</h3>
-      <p className="text-sm md:text-base">{member.name}</p>
-    </motion.div>
   )
 }
 
@@ -120,10 +82,14 @@ function BoardMemberCard({ member }: { member: BoardMember }) {
       className="flex flex-col items-center text-center"
     >
       <div className="relative w-28 h-28 md:w-36 md:h-36 mb-3 overflow-hidden rounded-full border-2 border-primary/10">
-        <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
+        <img
+          src={member.image || "/images/default.png"} // Use fallback image if `member.image` is empty
+          alt={member.name || "Member"}
+          className="object-cover w-full h-full"
+        />
       </div>
-      <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.position}</h3>
-      <p className="text-sm md:text-base">{member.name}</p>
+      <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.name}</h3>
+      <p className="text-sm md:text-base">{member.position}</p>
     </motion.div>
   )
 }

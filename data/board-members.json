@@ -4,51 +4,69 @@
     "2024/25": [
       {
         "id": "1",
-        "name": "John Doe",
-        "position": "Member",
-        "image": "/images/john.jpg"
+        "name": "Yasith Adithya",
+        "position": "Vice President",
+        "image": "/images/Yasith.png"
       },
       {
         "id": "2",
-        "name": "Jane Smith",
-        "position": "Member",
-        "image": "/images/jane.jpg"
+        "name": "Pasindu Dinal",
+        "position": "President",
+        "image": "/images/dinal.png"
       },
       {
         "id": "3",
-        "name": "Alice Johnson",
-        "position": "Member",
-        "image": "/images/alice.jpg"
+        "name": "Gokul Abisheak",
+        "position": "Secretary",
+        "image": "/images/gokul.png"
       },
       {
         "id": "4",
-        "name": "Bob Brown",
-        "position": "Member",
-        "image": "/images/bob.jpg"
+        "name": "Yohan Wickramasinghe",
+        "position": "Assistant Secretary",
+        "image": "/images/yohan.png"
       },
       {
         "id": "5",
-        "name": "Charlie Davis",
-        "position": "Member",
-        "image": "/images/charlie.jpg"
+        "name": "Kulanaka Bandara",
+        "position": "Treasurer",
+        "image": "/images/kulanaka.png"
       },
       {
         "id": "6",
-        "name": "Diana Evans",
-        "position": "Member",
-        "image": "/images/diana.jpg"
+        "name": "Kanishka Jayarathna",
+        "position": "Assistant Treasurer",
+        "image": "/images/kanishka.png"
       },
       {
         "id": "7",
-        "name": "Ethan Foster",
-        "position": "Member",
-        "image": "/images/ethan.jpg"
+        "name": "Sandali Dissanayaka",
+        "position": "Editor",
+        "image": "/images/sandali.png"
       },
       {
         "id": "8",
-        "name": "Fiona Gray",
-        "position": "Member",
-        "image": "/images/fiona.jpg"
+        "name": "Chamodi Liyanage",
+        "position": "Assistant Editor",
+        "image": "/images/chamodi.png"
+      },
+      {
+        "id": "9",
+        "name": "Pawan Senpura",
+        "position": "Dev Relation",
+        "image": "/images/pawan.png"
+      },
+      {
+        "id": "10",
+        "name": "Isuru Herath",
+        "position": "Dev Relation",
+        "image": "/images/isuru.png"
+      },
+      {
+        "id": "11",
+        "name": "Vijayathas Shangeeth",
+        "position": "Dev Relation",
+        "image": "/images/vijayathas.png"
       }
     ]
   }
