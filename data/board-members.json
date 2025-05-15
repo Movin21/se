@@ -1,0 +1,55 @@
+{
+  "years": [{ "id": "2024/25", "label": "2024/25" }],
+  "members": {
+    "2024/25": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "position": "Member",
+        "image": "/images/john.jpg"
+      },
+      {
+        "id": "2",
+        "name": "Jane Smith",
+        "position": "Member",
+        "image": "/images/jane.jpg"
+      },
+      {
+        "id": "3",
+        "name": "Alice Johnson",
+        "position": "Member",
+        "image": "/images/alice.jpg"
+      },
+      {
+        "id": "4",
+        "name": "Bob Brown",
+        "position": "Member",
+        "image": "/images/bob.jpg"
+      },
+      {
+        "id": "5",
+        "name": "Charlie Davis",
+        "position": "Member",
+        "image": "/images/charlie.jpg"
+      },
+      {
+        "id": "6",
+        "name": "Diana Evans",
+        "position": "Member",
+        "image": "/images/diana.jpg"
+      },
+      {
+        "id": "7",
+        "name": "Ethan Foster",
+        "position": "Member",
+        "image": "/images/ethan.jpg"
+      },
+      {
+        "id": "8",
+        "name": "Fiona Gray",
+        "position": "Member",
+        "image": "/images/fiona.jpg"
+      }
+    ]
+  }
+}

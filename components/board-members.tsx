@@ -2,53 +2,48 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { getBoardYears, getBoardMembersByYear, getCurrentBoardYear, isBoardYearValid } from "@/utils/board-members"
-import type { BoardMember } from "@/utils/board-members"
+import boardData from "@/data/board-members.json"
+
+interface BoardMember {
+  id: string
+  name: string
+  position: string
+  image: string
+}
 
 interface BoardMembersProps {
   initialYear?: string
 }
 
-/**
- * BoardMembers Component
- *
- * Displays the SESC board members for a selected year with filtering capability
- */
 export default function BoardMembers({ initialYear }: BoardMembersProps) {
-  const years = getBoardYears()
-  const defaultYear = initialYear && isBoardYearValid(initialYear) ? initialYear : getCurrentBoardYear()
+  const years = boardData.years
+  const defaultYear = initialYear || years[0].id
 
   const [selectedYear, setSelectedYear] = useState(defaultYear)
-  const [members, setMembers] = useState<BoardMember[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [members, setMembers] = useState<BoardMember[]>(boardData.members[defaultYear as keyof typeof boardData.members] || [])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     setIsLoading(true)
-    // Simulate loading to show transition
     const timer = setTimeout(() => {
-      setMembers(getBoardMembersByYear(selectedYear))
+      setMembers(boardData.members[selectedYear as keyof typeof boardData.members] || [])
       setIsLoading(false)
     }, 300)
 
     return () => clearTimeout(timer)
   }, [selectedYear])
 
-  // Separate leadership members from other members
-  const presidentMember = members.find((member) => member.position === "President")
-  const vicePresidentMember = members.find((member) => member.position === "Vice President")
-  const secretaryMember = members.find((member) => member.position === "Secretary")
-  const otherMembers = members.filter(
-    (member) => !["President", "Vice President", "Secretary"].includes(member.position),
-  )
-
   return (
-    <section id="board" className="w-full py-12 md:py-24 bg-background">
+    <section
+      id="board"
+      className="w-full py-12 md:py-24 bg-background text-foreground light:bg-blue-500 light:text-white"
+    >
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Our Board Members
           </h2>
-          <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed mb-8">
+          <p className="max-w-[700px] md:text-xl/relaxed mb-8">
             Meet the dedicated team leading the SLIIT Software Engineering Student Community
           </p>
 
@@ -85,31 +80,10 @@ export default function BoardMembers({ initialYear }: BoardMembersProps) {
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
                 </div>
               ) : (
-                <div className="space-y-16">
-                  {/* Leadership Row - President, VP, Secretary */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
-                    {/* Vice President - Left */}
-                    <div className="flex flex-col items-center justify-end text-center order-2 sm:order-1">
-                      {vicePresidentMember && <LeadershipMemberCard member={vicePresidentMember} size="medium" />}
-                    </div>
-
-                    {/* President - Center */}
-                    <div className="flex flex-col items-center text-center order-1 sm:order-2 mb-6 sm:mb-0">
-                      {presidentMember && <LeadershipMemberCard member={presidentMember} size="large" />}
-                    </div>
-
-                    {/* Secretary - Right */}
-                    <div className="flex flex-col items-center justify-end text-center order-3">
-                      {secretaryMember && <LeadershipMemberCard member={secretaryMember} size="medium" />}
-                    </div>
-                  </div>
-
-                  {/* Other Members - 4 per row */}
-                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                    {otherMembers.map((member) => (
-                      <BoardMemberCard key={member.id} member={member} />
-                    ))}
-                  </div>
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                  {members.map((member) => (
+                    <BoardMemberCard key={member.id} member={member} />
+                  ))}
                 </div>
               )}
             </motion.div>
@@ -120,36 +94,7 @@ export default function BoardMembers({ initialYear }: BoardMembersProps) {
   )
 }
 
-interface BoardMemberCardProps {
-  member: BoardMember
-  size?: "small" | "medium" | "large"
-}
-
-/**
- * LeadershipMemberCard Component
- *
- * Displays leadership board members with different sizes
- */
-function LeadershipMemberCard({ member, size = "medium" }: BoardMemberCardProps) {
-  // Size classes based on role
-  const sizeClasses = {
-    small: "w-24 h-24 md:w-28 md:h-28",
-    medium: "w-28 h-28 md:w-36 md:h-36",
-    large: "w-36 h-36 md:w-44 md:h-44",
-  }
-
-  const nameClasses = {
-    small: "text-xs md:text-sm",
-    medium: "text-sm md:text-base",
-    large: "text-base md:text-lg font-bold",
-  }
-
-  const positionClasses = {
-    small: "text-xs md:text-sm",
-    medium: "text-sm md:text-base",
-    large: "text-base md:text-lg font-bold",
-  }
-
+function LeadershipMemberCard({ member }: { member: BoardMember }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -157,37 +102,16 @@ function LeadershipMemberCard({ member, size = "medium" }: BoardMemberCardProps)
       transition={{ duration: 0.3 }}
       className="flex flex-col items-center text-center"
     >
-      <div
-        className={`relative ${sizeClasses[size]} mb-3 overflow-hidden rounded-full border-4 ${size === "large" ? "border-primary" : "border-primary/10"}`}
-      >
-        <div className="absolute inset-0 flex items-center justify-center bg-muted dark:bg-gray-800">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-2/3 h-2/3 text-primary/60 dark:text-primary/80"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
+      <div className="relative w-28 h-28 md:w-36 md:h-36 mb-3 overflow-hidden rounded-full border-2 border-primary/10">
+        <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
       </div>
-      <h3 className={`${positionClasses[size]} text-primary`}>{member.position}</h3>
-      <p className={`${nameClasses[size]} font-medium`}>{member.name}</p>
+      <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.position}</h3>
+      <p className="text-sm md:text-base">{member.name}</p>
     </motion.div>
   )
 }
 
-/**
- * BoardMemberCard Component
- *
- * Displays regular board members with smaller size
- */
-function BoardMemberCard({ member }: BoardMemberCardProps) {
+function BoardMemberCard({ member }: { member: BoardMember }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -195,25 +119,11 @@ function BoardMemberCard({ member }: BoardMemberCardProps) {
       transition={{ duration: 0.3 }}
       className="flex flex-col items-center text-center"
     >
-      <div className="relative w-20 h-20 md:w-24 md:h-24 mb-2 overflow-hidden rounded-full border-2 border-primary/10">
-        <div className="absolute inset-0 flex items-center justify-center bg-muted dark:bg-gray-800">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-2/3 h-2/3 text-primary/60 dark:text-primary/80"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
+      <div className="relative w-28 h-28 md:w-36 md:h-36 mb-3 overflow-hidden rounded-full border-2 border-primary/10">
+        <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
       </div>
-      <h3 className="text-xs md:text-sm font-medium text-primary">{member.position}</h3>
-      <p className="text-xs md:text-sm">{member.name}</p>
+      <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.position}</h3>
+      <p className="text-sm md:text-base">{member.name}</p>
     </motion.div>
   )
 }
