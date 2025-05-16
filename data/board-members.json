@@ -3,86 +3,78 @@
     {
       "id": "2024-2025",
       "label": "2024/25"
+    },{
+      "id": "2023-2024",
+      "label": "2023/24"
     }
   ],
-  "boards": {
+  "members": {
     "2024-2025": [
       {
         "id": "president",
         "name": "Pasindu Dinal",
         "position": "President",
-        "image": "/images/board/2024-2025/pasindu-dinal.jpg",
-        "order": 1
+        "image": "/images/board/2024-2025/pasindu-dinal.png"
       },
       {
         "id": "vice-president",
         "name": "Yasith Adithya",
         "position": "Vice President",
-        "image": "/images/board/2024-2025/yasith-adithya.jpg",
-        "order": 2
+        "image": "/images/board/2024-2025/yasith-adithya.png"
       },
       {
         "id": "secretary",
         "name": "Gokul Abisheak",
         "position": "Secretary",
-        "image": "/images/board/2024-2025/gokul-abisheak.jpg",
-        "order": 3
+        "image": "/images/board/2024-2025/gokul-abisheak.png"
       },
       {
         "id": "asst-secretary",
         "name": "Yohan Wickramasinghe",
         "position": "Asst. Secretary",
-        "image": "/images/board/2024-2025/yohan-wickramasinghe.jpg",
-        "order": 4
+        "image": "/images/board/2024-2025/yohan-wickramasinghe.png"
       },
       {
         "id": "treasurer",
         "name": "Kulanaka Bandara",
         "position": "Treasurer",
-        "image": "/images/board/2024-2025/kulanaka-bandara.jpg",
-        "order": 5
+        "image": "/images/board/2024-2025/kulanaka-bandara.png"
       },
       {
         "id": "asst-treasurer",
         "name": "Kanishka Jayarathna",
         "position": "Asst. Treasurer",
-        "image": "/images/board/2024-2025/kanishka-jayarathna.jpg",
-        "order": 6
+        "image": "/images/board/2024-2025/kanishka-jayarathna.png"
       },
       {
         "id": "editor",
         "name": "Sandali Dissanayaka",
         "position": "Editor",
-        "image": "/images/board/2024-2025/sandali-dissanayaka.jpg",
-        "order": 7
+        "image": "/images/board/2024-2025/sandali-dissanayaka.png"
       },
       {
         "id": "asst-editor",
         "name": "Chamodi Liyanage",
         "position": "Asst. Editor",
-        "image": "/images/board/2024-2025/chamodi-liyanage.jpg",
-        "order": 8
+        "image": "/images/board/2024-2025/chamodi-liyanage.png"
       },
       {
         "id": "dev-relation-1",
         "name": "Pawan Senpura",
         "position": "Dev Relation",
-        "image": "/images/board/2024-2025/pawan-senpura.jpg",
-        "order": 9
+        "image": "/images/board/2024-2025/pawan-senpura.png"
       },
       {
         "id": "dev-relation-2",
         "name": "Isuru Herath",
         "position": "Dev Relation",
-        "image": "/images/board/2024-2025/isuru-herath.jpg",
-        "order": 10
+        "image": "/images/board/2024-2025/isuru-herath.png"
       },
       {
         "id": "dev-relation-3",
         "name": "Vijayathas Shangeeth",
         "position": "Dev Relation",
-        "image": "/images/board/2024-2025/vijayathas-shangeeth.jpg",
-        "order": 11
+        "image": "/images/board/2024-2025/vijayathas-shangeeth.png"
       }
     ]
   }
