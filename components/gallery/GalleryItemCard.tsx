@@ -13,7 +13,7 @@ interface GalleryItemProps {
 const GalleryItemCard: React.FC<GalleryItemProps> = ({ item, onOpenModal }) => {
   return (
     <div
-      className="group relative overflow-hidden rounded-lg bg-white dark:bg-white/10 transition-all duration-300 border-2 border-primary dark:border-white cursor-pointer"
+      className="group relative overflow-hidden rounded-lg bg-white transition-all duration-300 border-2 border-primary cursor-pointer"
       onClick={() => onOpenModal(item)}
     >
       <div className="relative aspect-square overflow-hidden">

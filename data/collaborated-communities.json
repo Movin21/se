@@ -27,6 +27,13 @@
       "logoPath": "/images/communities/fcsc-logo.png",
       "website": "https://www.facebook.com/sliit.fcsc/",
       "description": "SLIIT Faculty of Computing Student Community"
+    },
+    {
+      "id": "aiesec",
+      "name": "AIESEC SLIIT",
+      "logoPath": "/images/communities/aiesec-sliit-logo.png",
+      "website": "https://aiesec.lk/",
+      "description": "Global youth leadership development organization at SLIIT"
     }
   ]
 }

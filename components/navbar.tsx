@@ -5,7 +5,6 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ModeToggle } from "@/components/mode-toggle"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import type { NavLink } from "@/types"
@@ -31,6 +30,7 @@ export default function Navbar() {
     { href: "/#board", label: "Board Members" },
     { href: "/#partners", label: "Partners" },
     { href: "/#communities", label: "Communities" },
+    { href: "/#gallery", label: "Gallery" },
     {
       href: "https://blog.sliitsesc.org/",
       label: "Blog",
@@ -71,8 +71,7 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <ModeToggle />
+        <div className="flex items-center">
           <Button
             variant="ghost"
             size="icon"

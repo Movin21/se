@@ -44,7 +44,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ item, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={handleBackdropClick}>
-      <div className="relative max-w-4xl w-full bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-xl">
+      <div className="relative max-w-4xl w-full bg-white rounded-lg overflow-hidden shadow-xl">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
@@ -58,12 +58,12 @@ const ImageModal: React.FC<ImageModalProps> = ({ item, isOpen, onClose }) => {
         </div>
 
         <div className="p-6">
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{item.title}</h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex items-center">
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">{item.title}</h3>
+          <p className="text-sm text-gray-500 mb-4 flex items-center">
             <span className="inline-block w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 mr-2"></span>
             {item.date}
           </p>
-          <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
+          <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
         </div>
       </div>
     </div>

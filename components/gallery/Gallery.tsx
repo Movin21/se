@@ -211,7 +211,7 @@ export default function Gallery() {
   ]
 
   return (
-    <div className="w-full py-12 md:py-24">
+    <div className="w-full py-12 md:py-24 bg-primary/5 overflow-hidden">
       <div className="container mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
