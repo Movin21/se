@@ -14,6 +14,7 @@ const nextConfig = {
   output: 'export',
   distDir: 'dist',
   assetPrefix: './',
+  trailingSlash: true
 }
 
 export default nextConfig

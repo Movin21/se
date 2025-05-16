@@ -1,8 +1,5 @@
 "use client"
-
-import Image from "next/image"
 import { getAllCommunities } from "@/utils/communities"
-import type { Community } from "@/utils/communities"
 
 /**
  * CollaboratedCommunities Component
@@ -34,12 +31,11 @@ export default function CollaboratedCommunities() {
               className="group p-6 rounded-lg hover:bg-muted/50 transition-all duration-300"
             >
               <div className="relative h-28 w-28 md:h-36 md:w-36 transition-transform duration-300 group-hover:scale-110">
-                <Image
+                {/* Use img tag instead of Next.js Image component for static export */}
+                <img
                   src={community.logoPath || "/placeholder.svg"}
                   alt={`${community.name} logo`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 112px, 144px"
+                  className="w-full h-full object-contain"
                   title={community.name}
                 />
               </div>
@@ -49,17 +45,4 @@ export default function CollaboratedCommunities() {
       </div>
     </section>
   )
-}
-
-interface CommunityLogoProps {
-  community: Community
-}
-
-/**
- * CommunityLogo Component
- *
- * Displays a single community logo
- */
-function CommunityLogo({ community }: CommunityLogoProps) {
-  return null
 }

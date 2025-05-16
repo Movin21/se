@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import { getPartnerLogo, getPartnerDisplayName, getAllPartners } from "@/utils/icons"
 import type { TranslateWrapperProps } from "@/types"
 
@@ -87,12 +86,11 @@ const LogoItem = ({ name }: LogoItemProps) => {
     <div className="flex items-center justify-center gap-4 px-4 py-4 text-foreground transition-colors md:py-6">
       {logoPath && (
         <div className="relative h-12 w-32 flex items-center justify-center">
-          <Image
+          {/* Use img tag instead of Next.js Image component for static export */}
+          <img
             src={logoPath || "/placeholder.svg"}
             alt={`${displayName} logo`}
-            fill
-            className="object-contain"
-            unoptimized
+            className="h-full w-full object-contain"
           />
         </div>
       )}

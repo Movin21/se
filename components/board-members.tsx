@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import boardData from "@/data/board-members.json"
-import Image from "next/image"
 
 interface BoardMember {
   id: string
@@ -22,7 +21,7 @@ export default function BoardMembers({ initialYear }: BoardMembersProps) {
 
   const [selectedYear, setSelectedYear] = useState(defaultYear)
   const [members, setMembers] = useState<BoardMember[]>(
-    boardData.members[defaultYear as keyof typeof boardData.members] || [],
+    boardData.members[selectedYear as keyof typeof boardData.members] || [],
   )
   const [isLoading, setIsLoading] = useState(false)
 
@@ -101,13 +100,8 @@ function BoardMemberCard({ member }: { member: BoardMember }) {
       className="flex flex-col items-center text-center"
     >
       <div className="relative w-28 h-28 md:w-36 md:h-36 mb-3 overflow-hidden rounded-full border-2 border-primary/10">
-        <Image
-          src={member.image || "/placeholder.svg"}
-          alt={member.name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 112px, 144px"
-        />
+        {/* Use img tag instead of Next.js Image component for static export */}
+        <img src={member.image || "/placeholder.svg"} alt={member.name} className="w-full h-full object-cover" />
       </div>
       <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.position}</h3>
       <p className="text-sm md:text-base">{member.name}</p>
