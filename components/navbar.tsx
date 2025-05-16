@@ -31,6 +31,7 @@ export default function Navbar() {
     { href: "/#board", label: "Board Members" },
     { href: "/#partners", label: "Partners" },
     { href: "/#communities", label: "Communities" },
+    { href: "/#gallery", label: "Gallery" },
     {
       href: "https://blog.sliitsesc.org/",
       label: "Blog",

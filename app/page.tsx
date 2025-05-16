@@ -11,6 +11,7 @@ import Footer from "@/components/footer"
 import BoardMembers from "@/components/board-members"
 import BlogCard from "@/components/blog-card"
 import CollaboratedCommunities from "@/components/collaborated-communities"
+import Gallery from "@/components/gallery/Gallery"
 
 /**
  * Home Page Component
@@ -105,6 +106,11 @@ export default function Home() {
 
       {/* Collaborated Communities Section */}
       <CollaboratedCommunities />
+
+         {/* Gallery Section */}
+      <section id="gallery">
+        <Gallery />
+      </section>
 
       {/* Blog Card Section */}
       <section className="w-full py-12 md:py-24 bg-muted relative overflow-hidden">
