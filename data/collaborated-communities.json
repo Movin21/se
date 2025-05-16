@@ -1,0 +1,19 @@
+{
+  "communities": [
+    {
+      "id": "foss",
+      "name": "SLIIT FOSS Community",
+      "logoPath": "/images/communities/foss-sliit-logo.webp",
+      "website": "https://sliitfoss.org/",
+      
+    },
+    {
+      "id": "msclub",
+      "name": "Microsoft Club SLIIT",
+      "logoPath": "/images/communities/ms-club-logo.png",
+      "website": "https://msclubsliit.org/",
+      
+    },
+   
+  ]
+}

@@ -9,6 +9,8 @@ import SocialLinks from "@/components/social-links"
 import { WatermarkWrapper } from "@/components/watermark"
 import Footer from "@/components/footer"
 import BoardMembers from "@/components/board-members"
+import BlogCard from "@/components/blog-card"
+import CollaboratedCommunities from "@/components/collaborated-communities"
 
 /**
  * Home Page Component
@@ -99,6 +101,21 @@ export default function Home() {
       {/* Industry Visit Partners Section */}
       <section id="partners">
         <IndustryPartners />
+      </section>
+
+      {/* Collaborated Communities Section */}
+      <CollaboratedCommunities />
+
+      {/* Blog Card Section */}
+      <section className="w-full py-12 md:py-24 bg-muted relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+          <BlogCard className="shadow-xl hover:shadow-2xl transition-all duration-300" />
+        </div>
+        {/* Add subtle background pattern */}
+        <div
+          className="absolute inset-0 bg-grid-primary/5 [mask-image:linear-gradient(0deg,transparent,rgba(0,0,0,0.6),transparent)] pointer-events-none"
+          aria-hidden="true"
+        ></div>
       </section>
 
       {/* Footer */}
