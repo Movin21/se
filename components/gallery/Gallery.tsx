@@ -1,367 +1,215 @@
-import React, { useState } from 'react';
+"use client"
 
-import GalleryGrid from './GalleryGrid';
-import { GalleryItem } from './types/Gallery';
+import { useState } from "react"
+import GalleryGrid from "./GalleryGrid"
+import ImageModal from "./ImageModal"
+import type { GalleryItem } from "./types/Gallery"
 
-/* Importing images for letter "S"- Inauguration 2025 */
-import img1 from './assets/IMG_0076.jpg';
-import img2 from './assets/IMG_5377.jpg';
-import img3 from './assets/IMG_0093.jpg';
-import img4 from './assets/IMG_5369.jpg';
-import img5 from './assets/IMG_0076.jpg';
-import img6 from './assets/IMG_5371.jpg';
-import img7 from './assets/IMG_5375.jpg';
-import img8 from './assets/IMG_0086.jpg';
-import img9 from './assets/IMG_0101.jpg';
-import img10 from './assets/IMG_5377.jpg';
-import img11 from './assets/IMG_0093.jpg';
+/**
+ * Gallery Component
+ *
+ * Displays a grid of images showcasing SESC events and activities
+ */
+export default function Gallery() {
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-/* Importing images for letter "E"- Inauguration 2025 */
-import img12 from './assets/connect-1.jpg';
-import img13 from './assets/connect-2.jpg';
-import img14 from './assets/connect-3.jpg';
-import img15 from './assets/connect-4.jpg';
-import img16 from './assets/connect-5.jpg';
-import img17 from './assets/connect-6.jpg';
-import img18 from './assets/connect-7.jpg';
-import img19 from './assets/connect-8.jpg';
-import img20 from './assets/connect-9.jpg';
-import img21 from './assets/connect-10.jpg';
-import img22 from './assets/connect-11.jpg';
+  const openModal = (item: GalleryItem) => {
+    setSelectedItem(item)
+    setIsModalOpen(true)
+  }
 
-/* Importing images for letter "S"- Exhibition 2025 */
-import img23 from './assets/Exhibition (1).jpg';
-import img24 from './assets/Exhibition (2).jpg';
-import img25 from './assets/Exhibition (3).jpg';
-import img26 from './assets/Exhibition (4).jpg';
-import img27 from './assets/Exhibition (5).jpg';
-import img28 from './assets/Exhibition (6).jpg';
-import img29 from './assets/connect-10.jpg';
-import img30 from './assets/connect-11.jpg';
-import img31 from './assets/IMG_5377.jpg';
-import img32 from './assets/IMG_0093.jpg';
-import img33 from './assets/connect-1.jpg';
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
-/* Importing images for letter "E" */
-import img34 from './assets/image1.png';
-import img35 from './assets/image2.png';
-import img36 from './assets/image3.png';
-import img37 from './assets/image4.png';
-import img38 from './assets/image5.png';
-import img39 from './assets/image6.png';
-import img40 from './assets/image7.png';
-import img41 from './assets/image8.png';
-import img42 from './assets/image9.png';
-
-const Gallery = () => {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
-
+  // Use only available images in the project
   const galleryItems: GalleryItem[] = [
-    /* Letter "C" */
+    // Connect images
     {
       id: 1,
-      title: "Inauguration 2025",
-      image: img1.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-1.jpg",
+      date: "September 15, 2024",
+      description:
+        "Group photo from our SESC Connect event where students gathered to network, share knowledge, and build lasting connections within our software engineering community.",
     },
     {
       id: 2,
-      title: "Inauguration 2025",
-      image: img2.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-2.jpg",
+      date: "September 15, 2024",
+      description:
+        "SESC Connect brought together our community members for knowledge sharing, networking, and collaboration - creating meaningful connections that strengthen our software engineering community.",
     },
     {
       id: 3,
-      title: "Inauguration 2025",
-      image: img3.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-3.jpg",
+      date: "September 15, 2024",
+      description:
+        "Our president addressing the community with insights and vision for the future of software engineering at SLIIT during the SESC Connect event.",
     },
     {
       id: 4,
-      title: "Inauguration 2025",
-      image: img4.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-4.jpg",
+      date: "September 15, 2024",
+      description:
+        "Knowledge sharing session at SESC Connect where industry experts and senior students shared valuable insights with the community.",
     },
     {
       id: 5,
-      title: "Inauguration 2025",
-      image: img5.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-5.jpg",
+      date: "September 15, 2024",
+      description:
+        "Interactive workshop session during SESC Connect where students engaged in hands-on learning and collaborative problem-solving.",
     },
     {
       id: 6,
-      title: "Inauguration 2025",
-      image: img6.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-6.jpg",
+      date: "September 15, 2024",
+      description:
+        "Engaged audience at SESC Connect, where students from various batches came together to learn and network with peers and seniors.",
     },
     {
       id: 7,
-      title: "Inauguration 2025",
-      image: img7.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-7.jpg",
+      date: "September 15, 2024",
+      description:
+        "Presentation on hackathon opportunities and coding challenges during SESC Connect, inspiring students to participate in tech competitions.",
     },
     {
       id: 8,
-      title: "Inauguration 2025",
-      image: img8.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-8.jpg",
+      date: "September 15, 2024",
+      description:
+        "Certificate presentation at SESC Connect, recognizing contributions and achievements of community members in various tech initiatives.",
     },
     {
       id: 9,
-      title: "Inauguration 2025",
-      image: img9.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-9.jpg",
+      date: "September 15, 2024",
+      description:
+        "Game time at SESC Connect! Team-building activities and fun tech challenges helped break the ice and foster collaboration among participants.",
     },
     {
       id: 10,
-      title: "Inauguration 2025",
-      image: img10.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
-    },
-    {
-      id: 11,
-      title: "Inauguration 2025",
-      image: img11.src,
-      date: "February 13, 2025",
-      description: "A proud moment marking the official inauguration of the Software Engineering batch of 2025 at SLIIT — celebrating new beginnings, inspiration, and unity."
+      title: "SESC Connect",
+      image: "/images/gallery/connect-11.jpg",
+      date: "September 15, 2024",
+      description:
+        "Industry expert sharing valuable insights and career guidance with SESC members during our Connect event.",
     },
 
-    /* Letter "E" */
+    // Industry visits
+    {
+      id: 11,
+      title: "Industry Visit - Rootcode",
+      image: "/images/gallery/rootcode-visit.png",
+      date: "November 30, 2024",
+      description:
+        "Thank you Rootcode for hosting us and sharing invaluable industry insights! Your guidance and expertise have truly inspired us to reach new heights in our software engineering journey.",
+    },
     {
       id: 12,
-      title: "SESC Connect",
-      image: img12.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Industry Visit - Creative Software",
+      image: "/images/gallery/creative-software-visit.png",
+      date: "November 23, 2024",
+      description:
+        "We are truly grateful for the time, hospitality, and valuable insights shared during our industry visit to Creative Software. It was an inspiring experience that gave us a deeper understanding of the software industry and its innovations.",
     },
     {
       id: 13,
-      title: "SESC Connect",
-      image: img13.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Industry Visit - Sysco Labs",
+      image: "/images/gallery/sysco-labs-visit.png",
+      date: "February 21, 2025",
+      description:
+        "Thank you Sysco LABS for hosting us and providing an incredible industry visit! We appreciate the opportunity to learn from your expertise and gain valuable insights into the evolving tech landscape.",
     },
     {
       id: 14,
-      title: "SESC Connect",
-      image: img14.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Industry Visit - Wiley",
+      image: "/images/gallery/wiley-visit.png",
+      date: "February 26, 2025",
+      description:
+        "A big thank you to the team at Wiley for hosting our industry visit! We truly appreciate the time, effort, and expertise you shared. Your guidance has been enlightening and motivating.",
     },
+
+    // Orientation images
     {
       id: 15,
-      title: "SESC Connect",
-      image: img15.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Software Engineering Orientation",
+      image: "/images/gallery/orientation-speaker-1.png",
+      date: "July 17, 2024",
+      description:
+        "Distinguished speaker sharing valuable insights and industry perspectives during the Software Engineering Orientation, inspiring our new batch of students.",
     },
     {
       id: 16,
-     title: "SESC Connect",
-      image: img16.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Software Engineering Orientation",
+      image: "/images/gallery/orientation-speaker-2.png",
+      date: "July 17, 2024",
+      description:
+        "Guest speaker at the Software Engineering Orientation providing guidance and motivation to our incoming students as they begin their academic journey.",
     },
     {
       id: 17,
-      title: "SESC Connect",
-      image: img17.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Software Engineering Orientation",
+      image: "/images/gallery/orientation-committee.png",
+      date: "July 17, 2024",
+      description:
+        "The organizing committee and student representatives who worked tirelessly to make the Software Engineering Orientation a memorable and successful event.",
     },
     {
       id: 18,
-      title: "SESC Connect",
-      image: img18.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "Software Engineering Orientation",
+      image: "/images/gallery/orientation-audience.png",
+      date: "July 17, 2024",
+      description:
+        "Engaged audience of new software engineering students attending the orientation program, eager to embark on their academic journey at SLIIT.",
     },
+
+    // Exhibition images
     {
       id: 19,
-      title: "SESC Connect",
-      image: img19.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "SLIIT Exhibition",
+      image: "/images/gallery/exhibition-1.jpg",
+      date: "April 03, 2025",
+      description:
+        "Creative Harry Potter themed photo booth at our exhibition, showcasing the fun side of our community while engaging visitors in an interactive experience.",
     },
     {
       id: 20,
-      title: "SESC Connect",
-      image: img20.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "SLIIT Exhibition",
+      image: "/images/gallery/exhibition-2.jpg",
+      date: "April 03, 2025",
+      description:
+        "Students showcasing software engineering projects at the SLIIT exhibition booth, where visitors can interact with demonstrations and learn about community initiatives.",
     },
     {
       id: 21,
-      title: "SESC Connect",
-      image: img21.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "SLIIT Exhibition",
+      image: "/images/gallery/exhibition-3.jpg",
+      date: "April 03, 2025",
+      description:
+        "Another view of our exhibition booth showing students and faculty engaging with visitors and explaining the various software engineering projects on display.",
     },
     {
       id: 22,
-      title: "SESC Connect",
-      image: img22.src,
-      date: "September 15, 2024",
-      description: "SESC Connect : A fun-filled meetup with new volunteers, games, team pitches, and project previews to boost collaboration and energy!"
+      title: "SLIIT Exhibition",
+      image: "/images/gallery/exhibition-4.jpg",
+      date: "April 03, 2025",
+      description:
+        "A busy day at the SLIIT exhibition with students demonstrating software applications and technologies to interested visitors from various backgrounds.",
     },
+  ]
 
-    /* Letter "S" */
-    {
-      id: 23,
-      title: "SLIIT Exhibition",
-      image: img23.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 24,
-      title: "SLIIT Exhibition",
-      image: img24.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 25,
-      title: "SLIIT Exhibition",
-      image: img25.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 26,
-      title: "SLIIT Exhibition",
-      image: img26.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 27,
-     title: "SLIIT Exhibition",
-      image: img27.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 28,
-      title: "SLIIT Exhibition",
-      image: img28.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 29,
-      title: "SLIIT Exhibition",
-      image: img29.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 30,
-      title: "SLIIT Exhibition",
-      image: img30.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 31,
-      title: "SLIIT Exhibition",
-      image: img31.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 32,
-      title: "SLIIT Exhibition",
-      image: img32.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    {
-      id: 33,
-      title: "SLIIT Exhibition",
-      image: img33.src,
-      date: "April 03, 2025",
-      description: "We proudly showcased our projects and contributions at the SLIIT Silver Jubilee Exhibition 2025 — celebrating innovation, teamwork, and 25 years of excellence."
-    },
-    /* Letter "S" */
-    {
-      id: 34,
-      title: "Industry Visit - GTN",
-      image: img34.src,
-      date: "May 02, 2025",
-      description: "We had an amazing time during our exclusive industry visit to GTN! From eye-opening conversations to behind-the-scenes insights, this experience truly brought the world of software engineering to life!."
-    },
-    {
-      id: 35,
-      title: "Industry Visit - Wiley",
-      image: img35.src,
-      date: "February 26, 2025",
-      description: "A huge thank you to the incredible team at Wiley for welcoming us and sharing your valuable industry insights! Your guidance has expanded our knowledge, motivated us to excel, and given us a deeper appreciation of the software engineering field."
-    },
-    {
-      id: 36,
-      title: "Industry Visit - Sysco Labs",
-      image: img36.src,
-      date: "February 21, 2025",
-      description: "We had an incredible opportunity to explore the dynamic work culture, cutting-edge technologies, and real-world industry applications at Sysco LABS. Engaging with professionals, gaining hands-on insights, and understanding how innovation drives success was truly an eye-opening experience."
-    },
-    {
-      id: 37,
-      title: "Industry Visit - Rootcode",
-      image: img37.src,
-      date: "November 30, 2024",
-      description: "Heartfelt thanks to Rootcode for hosting us and providing invaluable industry insights! 💡 Your guidance, expertise, and warm hospitality have truly inspired us to dream bigger and aim higher."
-    },
-     {
-      id: 38,
-      title: "Industry Visit - Creative Software",
-      image: img38.src,
-      date: "November 23, 2024",
-      description: "An incredible day well spent with the amazing team at Creative Software!"
-    },
-     {
-      id: 39,
-      title: "Inauguration 2024",
-      image: img39.src,
-      date: "September 06, 2024",
-      description: "From inspiring sessions with our esteemed guest speakers to meaningful interactions among students and staff, the event was filled with energy, learning, and excitement."
-    },
-     {
-      id: 40,
-       title: "Inauguration 2024",
-      image: img40.src,
-      date: "September 06, 2024",
-      description: "From inspiring sessions with our esteemed guest speakers to meaningful interactions among students and staff, the event was filled with energy, learning, and excitement."
-    },
-     {
-      id: 41,
-       title: "Inauguration 2024",
-      image: img41.src,
-      date: "September 06, 2024",
-      description: "From inspiring sessions with our esteemed guest speakers to meaningful interactions among students and staff, the event was filled with energy, learning, and excitement."
-    },
-     {
-      id: 42,
-       title: "Inauguration 2024",
-      image: img42.src,
-      date: "September 06, 2024",
-      description: "From inspiring sessions with our esteemed guest speakers to meaningful interactions among students and staff, the event was filled with energy, learning, and excitement."
-    },
-    
-  ];
-
-  
- 
   return (
     <div className="w-full py-12 md:py-24">
       <div className="container mx-auto">
@@ -374,13 +222,14 @@ const Gallery = () => {
           </p>
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
         </div>
-        
+
         <div className="mt-8">
-          <GalleryGrid items={galleryItems} />
+          <GalleryGrid items={galleryItems} onOpenModal={openModal} />
         </div>
       </div>
-    </div>
-  );
-};
 
-export default Gallery;
+      {/* Image Modal */}
+      <ImageModal item={selectedItem} isOpen={isModalOpen} onClose={closeModal} />
+    </div>
+  )
+}
