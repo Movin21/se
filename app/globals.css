@@ -90,33 +90,26 @@
     width: 100%;
   }
 
-  /* Explicit color definitions for What We Do page */
-  .bg-primary\/5 {
-    background-color: rgba(30, 58, 138, 0.05);
-  }
-
-  .text-primary {
-    color: hsl(231, 48%, 28%);
-  }
-
-  .text-muted-foreground {
-    color: hsl(215.4, 16.3%, 46.9%);
-  }
-
-  .bg-muted {
-    background-color: hsl(210, 40%, 96.1%);
-  }
-
-  .border-border {
-    border-color: hsl(214.3, 31.8%, 91.4%);
-  }
-
-  .bg-primary {
-    background-color: hsl(231, 48%, 28%);
-  }
-
-  .text-primary-foreground {
-    color: hsl(210, 40%, 98%);
+  /* Media query classes for What We Do page */
+  @media (min-width: 768px) {
+    .md\:hidden {
+      display: none;
+    }
+    .md\:grid {
+      display: grid;
+    }
+    .md\:flex-row {
+      flex-direction: row;
+    }
+    .md\:w-2\/5 {
+      width: 40%;
+    }
+    .md\:w-3\/5 {
+      width: 60%;
+    }
+    .md\:p-6 {
+      padding: 1.5rem;
+    }
   }
 }
 
