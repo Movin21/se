@@ -90,25 +90,33 @@
     width: 100%;
   }
 
-  /* Fix for styles disappearing on refresh */
-  .hydrated .bg-primary\/5 {
-    background-color: rgba(var(--primary), 0.05);
+  /* Explicit color definitions for What We Do page */
+  .bg-primary\/5 {
+    background-color: rgba(30, 58, 138, 0.05);
   }
 
-  .hydrated .text-primary {
-    color: hsl(var(--primary));
+  .text-primary {
+    color: hsl(231, 48%, 28%);
   }
 
-  .hydrated .text-muted-foreground {
-    color: hsl(var(--muted-foreground));
+  .text-muted-foreground {
+    color: hsl(215.4, 16.3%, 46.9%);
   }
 
-  .hydrated .bg-muted {
-    background-color: hsl(var(--muted));
+  .bg-muted {
+    background-color: hsl(210, 40%, 96.1%);
   }
 
-  .hydrated .border-border {
-    border-color: hsl(var(--border));
+  .border-border {
+    border-color: hsl(214.3, 31.8%, 91.4%);
+  }
+
+  .bg-primary {
+    background-color: hsl(231, 48%, 28%);
+  }
+
+  .text-primary-foreground {
+    color: hsl(210, 40%, 98%);
   }
 }
 

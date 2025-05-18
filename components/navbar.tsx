@@ -32,7 +32,7 @@ export default function Navbar() {
     { href: "/#partners", label: "Partners" },
     { href: "/#communities", label: "Communities" },
     { href: "/#gallery", label: "Gallery" },
-    
+
     {
       href: "https://blog.sliitsesc.org/",
       label: "Blog",
@@ -45,7 +45,8 @@ export default function Navbar() {
       setIsMenuOpen(false)
     }
 
-    if (!isExternal) {
+    // Only use smooth scroll for hash links on the same page
+    if (!isExternal && href.includes("#") && window.location.pathname === "/") {
       scrollToSection(e, href)
     }
   }
@@ -54,7 +55,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2" onClick={(e) => handleLinkClick(e, "/#hero")}>
+          <Link href="/" className="flex items-center gap-2">
             <Image src="/images/logo.png" alt="SLIIT SEC Logo" width={100} height={50} priority unoptimized />
           </Link>
         </div>

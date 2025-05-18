@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useCallback, useEffect } from "react"
+import { useCallback } from "react"
 
 /**
  * Custom hook for smooth scrolling to sections when clicking anchor links
@@ -41,17 +41,6 @@ export function useSmoothScroll(offset = 0) {
     },
     [offset],
   )
-
-  // Add smooth scrolling behavior to the document
-  useEffect(() => {
-    // Add smooth scrolling to the document
-    document.documentElement.style.scrollBehavior = "smooth"
-
-    return () => {
-      // Clean up
-      document.documentElement.style.scrollBehavior = ""
-    }
-  }, [])
 
   return { scrollToSection }
 }
