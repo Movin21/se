@@ -182,7 +182,7 @@ export default function Home() {
             {/* Instagram-style posts layout */}
             <div className="mt-6">
               {/* Mobile: Horizontal scroll */}
-              <div className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory touch-pan-x">
+              <div className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory touch-pan-x overscroll-x-contain overscroll-y-none -mx-4 px-4">
                 {whatWeDoData.upcomingEvents.map((event) => (
                   <a
                     key={event.id}
@@ -192,7 +192,7 @@ export default function Home() {
                     className="w-[calc(100vw-4rem)] max-w-[320px] flex-none snap-center"
                   >
                     <div className="overflow-hidden rounded-xl border border-border shadow-sm">
-                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted">
+                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted touch-none">
                         <img
                           src={event.image || "/placeholder.svg"}
                           alt={event.title}
@@ -210,7 +210,7 @@ export default function Home() {
               </div>
 
               {/* Desktop: Grid layout */}
-              <div className="hidden md:grid grid-cols-3 gap-6">
+              <div className="hidden md:grid grid-cols-3 gap-6 touch-none">
                 {whatWeDoData.upcomingEvents.map((event) => (
                   <a key={event.id} href={event.link} target="_blank" rel="noopener noreferrer" className="block">
                     <div className="overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
@@ -255,7 +255,7 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                     {/* Image section */}
                     <div className="md:w-2/5">
-                      <div className="relative aspect-[3/4] w-full overflow-hidden">
+                      <div className="relative aspect-[3/4] w-full overflow-hidden touch-none">
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
