@@ -1,4 +1,5 @@
 "use client"
+import { useState, useEffect } from "react"
 import { getAllCommunities } from "@/utils/communities"
 
 /**
@@ -8,6 +9,14 @@ import { getAllCommunities } from "@/utils/communities"
  */
 export default function CollaboratedCommunities() {
   const communities = getAllCommunities()
+  const [baseUrl, setBaseUrl] = useState("")
+
+  // Get the base URL for assets when component mounts
+  useEffect(() => {
+    // For deployed environments, use the relative path
+    // This helps with various deployment configurations
+    setBaseUrl(window.location.pathname.endsWith("/") ? "." : "..")
+  }, [])
 
   return (
     <section id="communities" className="w-full py-12 md:py-24 bg-background border-t border-b border-border/20">
@@ -25,10 +34,15 @@ export default function CollaboratedCommunities() {
           {communities.map((community) => (
             <div key={community.id} className="p-6 rounded-lg hover:bg-muted/50 transition-all duration-300">
               <img
-                src={community.logoPath || "/placeholder.svg"}
+                src={`${baseUrl}${community.logoPath}` || "/placeholder.svg"}
                 alt={`${community.name} logo`}
                 className="h-28 w-28 md:h-36 md:w-36 object-contain transition-transform duration-300 hover:scale-110"
                 title={community.name}
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  e.currentTarget.src = `${baseUrl}/placeholder.svg?text=${encodeURIComponent(community.name)}`
+                  console.log(`Failed to load image for ${community.name}, using placeholder instead`)
+                }}
               />
             </div>
           ))}

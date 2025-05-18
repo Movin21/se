@@ -14,7 +14,9 @@ const nextConfig = {
   output: 'export',
   distDir: 'dist',
   assetPrefix: './',
-  trailingSlash: true
+  trailingSlash: true,
+  // Add basePath if deploying to a subdirectory
+  // basePath: '/your-base-path',
 }
 
 export default nextConfig
