@@ -13,11 +13,8 @@ export type Community = {
  */
 export function getAllCommunities(): Community[] {
   try {
-    // Ensure logoPath starts with a slash for consistency
-    return (communitiesData.communities || []).map((community) => ({
-      ...community,
-      logoPath: community.logoPath.startsWith("/") ? community.logoPath : `/${community.logoPath}`,
-    }))
+    // Return the communities data directly, paths are already relative in the JSON
+    return communitiesData.communities || []
   } catch (error) {
     console.error("Error loading communities data:", error)
     return []
@@ -29,15 +26,7 @@ export function getAllCommunities(): Community[] {
  */
 export function getCommunityById(id: string): Community | undefined {
   try {
-    const community = communitiesData.communities.find((community) => community.id === id)
-    if (community) {
-      // Ensure logoPath starts with a slash for consistency
-      return {
-        ...community,
-        logoPath: community.logoPath.startsWith("/") ? community.logoPath : `/${community.logoPath}`,
-      }
-    }
-    return undefined
+    return communitiesData.communities.find((community) => community.id === id)
   } catch (error) {
     console.error(`Error finding community with ID ${id}:`, error)
     return undefined

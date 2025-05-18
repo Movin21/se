@@ -13,10 +13,8 @@ const nextConfig = {
   },
   output: 'export',
   distDir: 'dist',
-  assetPrefix: './',
+  assetPrefix: '',  // Empty string for root deployment
   trailingSlash: true,
-  // Add basePath if deploying to a subdirectory
-  // basePath: '/your-base-path',
 }
 
 export default nextConfig

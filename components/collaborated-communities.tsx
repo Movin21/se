@@ -1,5 +1,4 @@
 "use client"
-import { useState, useEffect } from "react"
 import { getAllCommunities } from "@/utils/communities"
 
 /**
@@ -9,14 +8,6 @@ import { getAllCommunities } from "@/utils/communities"
  */
 export default function CollaboratedCommunities() {
   const communities = getAllCommunities()
-  const [baseUrl, setBaseUrl] = useState("")
-
-  // Get the base URL for assets when component mounts
-  useEffect(() => {
-    // For deployed environments, use the relative path
-    // This helps with various deployment configurations
-    setBaseUrl(window.location.pathname.endsWith("/") ? "." : "..")
-  }, [])
 
   return (
     <section id="communities" className="w-full py-12 md:py-24 bg-background border-t border-b border-border/20">
@@ -33,15 +24,16 @@ export default function CollaboratedCommunities() {
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           {communities.map((community) => (
             <div key={community.id} className="p-6 rounded-lg hover:bg-muted/50 transition-all duration-300">
+              {/* Use direct relative paths for static export compatibility */}
               <img
-                src={`${baseUrl}${community.logoPath}` || "/placeholder.svg"}
+                src={community.logoPath.replace(/^\//, "./") || "./placeholder.svg"}
                 alt={`${community.name} logo`}
                 className="h-28 w-28 md:h-36 md:w-36 object-contain transition-transform duration-300 hover:scale-110"
                 title={community.name}
                 onError={(e) => {
-                  // Fallback to placeholder if image fails to load
-                  e.currentTarget.src = `${baseUrl}/placeholder.svg?text=${encodeURIComponent(community.name)}`
-                  console.log(`Failed to load image for ${community.name}, using placeholder instead`)
+                  // Fallback to a data URI if image fails to load
+                  e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ctext x='50' y='50' fontFamily='Arial' fontSize='14' textAnchor='middle' dominantBaseline='middle' fill='%23333'%3E${encodeURIComponent(community.name)}%3C/text%3E%3C/svg%3E`
+                  console.error(`Failed to load image: ${community.logoPath} for ${community.name}`)
                 }}
               />
             </div>

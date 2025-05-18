@@ -3,28 +3,28 @@
     {
       "id": "foss",
       "name": "SLIIT FOSS Community",
-      "logoPath": "/images/communities/foss-sliit-logo.webp",
+      "logoPath": "./images/communities/foss-sliit-logo.webp",
       "website": "https://sliitfoss.org/",
       "description": "Free and Open Source Software Community at SLIIT"
     },
     {
       "id": "msclub",
       "name": "Microsoft Club SLIIT",
-      "logoPath": "/images/communities/ms-club-logo.png",
+      "logoPath": "./images/communities/ms-club-logo.png",
       "website": "https://msclubsliit.org/",
       "description": "Microsoft technology enthusiasts at SLIIT"
     },
     {
       "id": "ieee-cs",
       "name": "IEEE Computer Society SLIIT",
-      "logoPath": "/images/communities/ieee-cs-sliit-logo.png",
+      "logoPath": "./images/communities/ieee-cs-sliit-logo.png",
       "website": "https://www.facebook.com/ieeecssliit/",
       "description": "IEEE Computer Society Student Branch Chapter at SLIIT"
     },
     {
       "id": "fcsc",
       "name": "Faculty of Computing Student Community",
-      "logoPath": "/images/communities/fcsc-logo.png",
+      "logoPath": "./images/communities/fcsc-logo.png",
       "website": "https://www.facebook.com/sliit.fcsc/",
       "description": "SLIIT Faculty of Computing Student Community"
     }
