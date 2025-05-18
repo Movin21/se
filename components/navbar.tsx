@@ -28,9 +28,11 @@ export default function Navbar() {
     { href: "/#hero", label: "Home" },
     { href: "/#vision-mission", label: "Vision & Mission" },
     { href: "/#board", label: "Board Members" },
+    { href: "/what-we-do", label: "What We Do" },
     { href: "/#partners", label: "Partners" },
     { href: "/#communities", label: "Communities" },
     { href: "/#gallery", label: "Gallery" },
+    
     {
       href: "https://blog.sliitsesc.org/",
       label: "Blog",

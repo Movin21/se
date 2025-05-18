@@ -48,18 +48,26 @@ export default function Footer() {
   }
 
   return (
-    <footer className="w-full py-12 md:py-16 bg-background border-t">
+    <footer className="w-full py-12 md:py-20 bg-primary/5 border-t">
       <div className="container px-4 md:px-6">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Image src="/images/logo.png" alt="SLIIT SEC Logo" width={120} height={60} priority unoptimized />
+              <Image
+                src="/images/logo.png"
+                alt="SLIIT SEC Logo"
+                width={120}
+                height={60}
+                priority
+                unoptimized
+                className="hover:opacity-90 transition-opacity"
+              />
             </div>
             <p className="text-sm text-muted-foreground">
               Welcome to SLIIT Software Engineering Student Community. We're a group of passionate students dedicated to
               the growth of software engineering knowledge and skills.
             </p>
-            <SocialLinks />
+            <SocialLinks className="pt-2" />
           </div>
 
           <div className="space-y-4">
@@ -141,18 +149,13 @@ export default function Footer() {
           <p className="text-xs text-muted-foreground">
             &copy; {currentYear} SLIIT Software Engineering Student Community. All rights reserved.
           </p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            {legalLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-muted-foreground hover:text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="flex items-center gap-6 mt-4 md:mt-0">
+            <div className="h-10 w-auto">
+              <img src="/images/logo.png" alt="SLIIT SEC Logo" className="h-full w-auto object-contain" />
+            </div>
+            <div className="h-8 w-auto">
+              <img src="/images/communities/fcsc-logo.png" alt="FCSC Logo" className="h-full w-auto object-contain" />
+            </div>
           </div>
         </div>
       </div>

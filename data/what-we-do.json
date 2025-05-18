@@ -1,0 +1,34 @@
+{
+  "upcomingEvents": [
+    {
+      "id": "agm-2025",
+      "title": "Annual General Meeting 2025/26",
+      "image": "/images/events/agm-2025.png",
+      "link": "https://www.instagram.com/sliit.sesc/p/DJwIZRsIOmM/"
+    },
+    {
+      "id": "women-in-tech",
+      "title": "Women in Tech Workshop by Perituza",
+      "image": "/images/events/women-in-tech.png",
+      "link": "https://www.instagram.com/sliit.sesc/p/DJfzSa7SbIL/"
+    }
+  ],
+  "csrProjects": [
+    {
+      "id": "arthritis-connect",
+      "title": "ArthritisConnect",
+      "partner": "Rheumatology Department of Kurunegala General Hospital",
+      "status": "Launching Soon",
+      "description": "An information hub for arthritis patients in Sri Lanka to gather information about their conditions and contact doctors directly.",
+      "longDescription": "ArthritisConnect is a multilingual digital platform providing expert-verified information to empower rheumatic patients in Sri Lanka. The platform offers free medical advice for rheumatic conditions, making healthcare information more accessible to those who need it most.",
+      "image": "/images/csr/arthritis-connect.png",
+      "link": "https://arthritis.lk",
+      "impact": [
+        "Providing accessible medical information to over 1.5 million Sri Lankans suffering from arthritis",
+        "Reducing hospital wait times by enabling online consultations",
+        "Empowering patients with knowledge about their conditions"
+      ]
+    }
+    
+  ]
+}
