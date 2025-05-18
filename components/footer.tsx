@@ -149,14 +149,7 @@ export default function Footer() {
           <p className="text-xs text-muted-foreground">
             &copy; {currentYear} SLIIT Software Engineering Student Community. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 mt-4 md:mt-0">
-            <div className="h-10 w-auto">
-              <img src="/images/logo.png" alt="SLIIT SEC Logo" className="h-full w-auto object-contain" />
-            </div>
-            <div className="h-8 w-auto">
-              <img src="/images/communities/fcsc-logo.png" alt="FCSC Logo" className="h-full w-auto object-contain" />
-            </div>
-          </div>
+          {/* Logos section removed */}
         </div>
       </div>
     </footer>
