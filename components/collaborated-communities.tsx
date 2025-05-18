@@ -23,20 +23,14 @@ export default function CollaboratedCommunities() {
 
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           {communities.map((community) => (
-            <a
-              key={community.id}
-              href={community.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 rounded-lg hover:bg-muted/50 transition-all duration-300"
-            >
+            <div key={community.id} className="p-6 rounded-lg hover:bg-muted/50 transition-all duration-300">
               <img
                 src={community.logoPath || "/placeholder.svg"}
                 alt={`${community.name} logo`}
-                className="h-28 w-28 md:h-36 md:w-36 object-contain transition-transform duration-300 group-hover:scale-110"
+                className="h-28 w-28 md:h-36 md:w-36 object-contain transition-transform duration-300 hover:scale-110"
                 title={community.name}
               />
-            </a>
+            </div>
           ))}
         </div>
       </div>

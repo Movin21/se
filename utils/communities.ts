@@ -12,12 +12,22 @@ export type Community = {
  * Get all collaborated communities
  */
 export function getAllCommunities(): Community[] {
-  return communitiesData.communities
+  try {
+    return communitiesData.communities || []
+  } catch (error) {
+    console.error("Error loading communities data:", error)
+    return []
+  }
 }
 
 /**
  * Get a specific community by ID
  */
 export function getCommunityById(id: string): Community | undefined {
-  return communitiesData.communities.find((community) => community.id === id)
+  try {
+    return communitiesData.communities.find((community) => community.id === id)
+  } catch (error) {
+    console.error(`Error finding community with ID ${id}:`, error)
+    return undefined
+  }
 }
