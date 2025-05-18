@@ -182,7 +182,10 @@ export default function Home() {
             {/* Instagram-style posts layout */}
             <div className="mt-6">
               {/* Mobile: Horizontal scroll */}
-              <div className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory touch-pan-x overscroll-x-contain overscroll-y-none -mx-4 px-4">
+              <div
+                className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory -mx-4 px-4"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
                 {whatWeDoData.upcomingEvents.map((event) => (
                   <a
                     key={event.id}
@@ -192,7 +195,7 @@ export default function Home() {
                     className="w-[calc(100vw-4rem)] max-w-[320px] flex-none snap-center"
                   >
                     <div className="overflow-hidden rounded-xl border border-border shadow-sm">
-                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted touch-none">
+                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted">
                         <img
                           src={event.image || "/placeholder.svg"}
                           alt={event.title}
@@ -245,7 +248,10 @@ export default function Home() {
             {/* Instagram-style posts layout */}
             <div className="mt-6">
               {/* Mobile: Horizontal scroll */}
-              <div className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory touch-pan-x overscroll-x-contain overscroll-y-none -mx-4 px-4">
+              <div
+                className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory -mx-4 px-4"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
                 {whatWeDoData.pastEvents.map((event) => (
                   <a
                     key={event.id}
@@ -255,7 +261,7 @@ export default function Home() {
                     className="w-[calc(100vw-4rem)] max-w-[320px] flex-none snap-center"
                   >
                     <div className="overflow-hidden rounded-xl border border-border shadow-sm">
-                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted touch-none">
+                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted">
                         <img
                           src={event.image || "/placeholder.svg"}
                           alt={event.title}
@@ -322,7 +328,7 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                     {/* Image section */}
                     <div className="md:w-2/5">
-                      <div className="relative aspect-[3/4] w-full overflow-hidden touch-none">
+                      <div className="relative aspect-[3/4] w-full overflow-hidden">
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
@@ -368,6 +374,34 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* More Events Button */}
+          <div className="flex justify-center mt-12">
+            <a
+              href="https://www.instagram.com/sliit.sesc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-blue-600 to-indigo-800 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mr-2 h-4 w-4"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+              Visit for More
+            </a>
           </div>
         </div>
       </section>

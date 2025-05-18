@@ -178,11 +178,11 @@ export default function Gallery() {
     // Exhibition images
     {
       id: 19,
-      title: "SLIIT Exhibition",
-      image: "/images/gallery/exhibition-1.jpg",
-      date: "April 03, 2025",
+     title: "SESC Connect",
+      image: "/images/gallery/connect-6.jpg",
+      date: "September 15, 2024",
       description:
-        "Creative Harry Potter themed photo booth at our exhibition, showcasing the fun side of our community while engaging visitors in an interactive experience.",
+        "Engaged audience at SESC Connect, where students from various batches came together to learn and network with peers and seniors.",
     },
     {
       id: 20,
