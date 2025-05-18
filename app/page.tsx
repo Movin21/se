@@ -293,11 +293,6 @@ export default function Home() {
                           }}
                         />
                       </div>
-                      <div className="p-4">
-                        <h4 className="font-medium">{event.title}</h4>
-                        <p className="text-sm text-muted-foreground mt-1">{event.date}</p>
-                        <p className="text-sm mt-2">{event.location}</p>
-                      </div>
                     </div>
                   </a>
                 ))}
