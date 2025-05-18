@@ -233,6 +233,78 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Past Events Subsection */}
+          <div className="mb-16">
+            <div className="flex flex-col justify-between gap-2 md:flex-row mb-6">
+              <div>
+                <h3 className="text-2xl font-bold tracking-tighter md:text-3xl text-primary">Past Events</h3>
+                <p className="mt-1 text-muted-foreground">Explore our previous events and activities</p>
+              </div>
+            </div>
+
+            {/* Instagram-style posts layout */}
+            <div className="mt-6">
+              {/* Mobile: Horizontal scroll */}
+              <div className="md:hidden flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory touch-pan-x overscroll-x-contain overscroll-y-none -mx-4 px-4">
+                {whatWeDoData.pastEvents.map((event) => (
+                  <a
+                    key={event.id}
+                    href={event.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-[calc(100vw-4rem)] max-w-[320px] flex-none snap-center"
+                  >
+                    <div className="overflow-hidden rounded-xl border border-border shadow-sm">
+                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted touch-none">
+                        <img
+                          src={event.image || "/placeholder.svg"}
+                          alt={event.title}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = `/placeholder.svg?height=600&width=600&query=${encodeURIComponent(
+                              event.title,
+                            )}`
+                          }}
+                        />
+                      </div>
+                      <div className="p-3">
+                        <h4 className="font-medium text-sm truncate">{event.title}</h4>
+                        <p className="text-xs text-muted-foreground mt-1">{event.date}</p>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Desktop: Grid layout */}
+              <div className="hidden md:grid grid-cols-3 gap-6 touch-none">
+                {whatWeDoData.pastEvents.map((event) => (
+                  <a key={event.id} href={event.link} target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                      <div className="aspect-[3/4] w-full overflow-hidden bg-muted">
+                        <img
+                          src={event.image || "/placeholder.svg"}
+                          alt={event.title}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = `/placeholder.svg?height=600&width=600&query=${encodeURIComponent(
+                              event.title,
+                            )}`
+                          }}
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-medium">{event.title}</h4>
+                        <p className="text-sm text-muted-foreground mt-1">{event.date}</p>
+                        <p className="text-sm mt-2">{event.location}</p>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* CSR Projects Subsection */}
           <div>
             <div className="flex flex-col justify-between gap-2 md:flex-row mb-6">
@@ -266,11 +338,6 @@ export default function Home() {
                             )}`
                           }}
                         />
-                        <div className="absolute bottom-2 right-2">
-                          <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">
-                            {project.status}
-                          </span>
-                        </div>
                       </div>
                     </div>
 

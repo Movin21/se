@@ -13,6 +13,17 @@
       "link": "https://www.instagram.com/sliit.sesc/p/DJfzSa7SbIL/"
     }
   ],
+  "pastEvents": [
+    {
+      "id": "gtn-visit",
+      "title": "Industry Visit to GTN",
+      "date": "April 28th, 2025",
+      "location": "GTN Headquarters",
+      "description": "Students experienced what it's like inside a leading tech company, learned how real-world software products are built, explored the latest tools in action, and met the creative minds driving innovation in the industry.",
+      "image": "./images/events/gtn-visit.png",
+      "link": "https://www.instagram.com/sliit.sesc/"
+    }
+  ],
   "csrProjects": [
     {
       "id": "arthritis-connect",
@@ -29,6 +40,5 @@
         "Empowering patients with knowledge about their conditions"
       ]
     }
-    
   ]
 }
