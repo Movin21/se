@@ -16,11 +16,11 @@
   "csrProjects": [
     {
       "id": "arthritis-connect",
-      "title": "ArthritisConnect",
+      "title": "Arthritis.lk",
       "partner": "Rheumatology Department of Kurunegala General Hospital",
       "status": "Launching Soon",
       "description": "An information hub for arthritis patients in Sri Lanka to gather information about their conditions and contact doctors directly.",
-      "longDescription": "ArthritisConnect is a multilingual digital platform providing expert-verified information to empower rheumatic patients in Sri Lanka. The platform offers free medical advice for rheumatic conditions, making healthcare information more accessible to those who need it most.",
+      "longDescription": "Arthritis.lk is a multilingual digital platform providing expert-verified information to empower rheumatic patients in Sri Lanka. The platform offers free medical advice for rheumatic conditions, making healthcare information more accessible to those who need it most.",
       "image": "/images/csr/arthritis-connect.png",
       "link": "https://arthritis.lk",
       "impact": [

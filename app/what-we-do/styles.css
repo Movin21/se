@@ -1,8 +1,0 @@
-/* Fallback styles for What We Do page */
-.what-we-do-layout {
-  --primary-color: hsl(231, 48%, 28%);
-  --primary-bg-light: rgba(30, 58, 138, 0.05);
-  --muted-bg: hsl(210, 40%, 96.1%);
-  --muted-text: hsl(215.4, 16.3%, 46.9%);
-  --border-color: hsl(214.3, 31.8%, 91.4%);
-}
