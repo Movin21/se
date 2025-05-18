@@ -1,16 +1,37 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Footer from "@/components/footer"
 import CSRProjectCard from "@/components/csr-project-card"
 import whatWeDoData from "@/data/what-we-do.json"
 
 export default function WhatWeDoPage() {
-  // Add scroll to top when page loads
+  // Add state to track if the component is mounted
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Add scroll to top when page loads and set mounted state
   useEffect(() => {
     window.scrollTo(0, 0)
+    setIsMounted(true)
+
+    // Ensure styles are applied after hydration
+    const timer = setTimeout(() => {
+      if (document.body.classList.contains("hydrated")) return
+      document.body.classList.add("hydrated")
+    }, 100)
+
+    return () => clearTimeout(timer)
   }, [])
+
+  // Don't render content until client-side hydration is complete
+  if (!isMounted) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -89,6 +89,27 @@
   .nav-link-hover:hover::after {
     width: 100%;
   }
+
+  /* Fix for styles disappearing on refresh */
+  .hydrated .bg-primary\/5 {
+    background-color: rgba(var(--primary), 0.05);
+  }
+
+  .hydrated .text-primary {
+    color: hsl(var(--primary));
+  }
+
+  .hydrated .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .hydrated .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+
+  .hydrated .border-border {
+    border-color: hsl(var(--border));
+  }
 }
 
 @layer utilities {

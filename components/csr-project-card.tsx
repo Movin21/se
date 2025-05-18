@@ -31,6 +31,7 @@ export default function CSRProjectCard({ project, index }: CSRProjectCardProps) 
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
       className="w-full overflow-hidden rounded-xl border border-border bg-background shadow-sm mb-8"
+      style={{ opacity: 1 }} // Ensure opacity is set even before animation completes
     >
       <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-4 md:gap-6`}>
         {/* Image section */}
@@ -40,6 +41,10 @@ export default function CSRProjectCard({ project, index }: CSRProjectCardProps) 
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               className="h-full w-full object-contain"
+              onError={(e) => {
+                // Fallback to placeholder if image fails to load
+                e.currentTarget.src = `/placeholder.svg?height=600&width=600&query=${encodeURIComponent(project.title)}`
+              }}
             />
             <div className="absolute bottom-2 right-2">
               <Badge variant="secondary" className="bg-primary text-primary-foreground">
