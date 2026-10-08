@@ -1,18 +1,89 @@
 import type React from "react"
 import "@/app/globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "next-themes"
 import Navbar from "@/components/navbar"
 import ScrollToTop from "@/components/scroll-to-top"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
-  title: "SLIIT Software Engineering Student Community",
-  description: "Official website of the SLIIT Software Engineering Student Community",
-  icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | ${siteConfig.shortName}`,
+    template: `%s | ${siteConfig.shortName}`,
   },
-  generator: "v0.dev",
+  description: siteConfig.description,
+  applicationName: siteConfig.shortName,
+  keywords: [
+    "SLIIT",
+    "SLIIT SESC",
+    "SESC",
+    "Software Engineering",
+    "Student Community",
+    "SLIIT Software Engineering",
+    "Sri Lanka",
+    "Malabe",
+    "tech events",
+    "workshops",
+    "industry visits",
+    "CSR projects",
+  ],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: siteConfig.name,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: siteConfig.themeColor,
+}
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/icon-512.png`,
+  email: siteConfig.email,
+  description: siteConfig.description,
+  parentOrganization: {
+    "@type": "CollegeOrUniversity",
+    name: "Sri Lanka Institute of Information Technology",
+    alternateName: "SLIIT",
+    url: "https://www.sliit.lk",
+  },
+  sameAs: siteConfig.socials,
 }
 
 export default function RootLayout({
@@ -23,15 +94,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/logo.png" />
-        <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <style
           dangerouslySetInnerHTML={{
             __html: `
