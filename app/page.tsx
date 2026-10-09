@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* Board Members Section */}
-      <BoardMembers initialYear="2024-2025" />
+      <BoardMembers />
 
       {/* Industry Visit Partners Section */}
       <section id="partners">
