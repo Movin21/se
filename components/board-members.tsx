@@ -101,7 +101,7 @@ function BoardMemberCard({ member }: { member: BoardMember }) {
     >
       <div className="relative w-28 h-28 md:w-36 md:h-36 mb-3 overflow-hidden rounded-full border-2 border-primary/10">
         {/* Use img tag instead of Next.js Image component for static export */}
-        <img src={member.image || "/placeholder.svg"} alt={member.name} className="w-full h-full object-cover" />
+        <img src={member.image || "/placeholder.svg"} alt={member.name} width={144} height={144} loading="lazy" decoding="async" className="w-full h-full object-cover" />
       </div>
       <h3 className="text-sm md:text-base font-medium text-primary mb-1">{member.position}</h3>
       <p className="text-sm md:text-base">{member.name}</p>

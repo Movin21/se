@@ -1,14 +1,207 @@
 {
   "years": [
     {
+      "id": "2026-2027",
+      "label": "2026/27"
+    },
+    {
+      "id": "2025-2026",
+      "label": "2025/26"
+    },
+    {
       "id": "2024-2025",
       "label": "2024/25"
-    },{
+    },
+    {
       "id": "2023-2024",
       "label": "2023/24"
     }
   ],
   "members": {
+    "2026-2027": [
+      {
+        "id": "president",
+        "name": "Muhammadhu Bishru",
+        "position": "President",
+        "image": "/images/board/2026-2027/muhammadhu-bishru.webp"
+      },
+      {
+        "id": "vice-president",
+        "name": "Tilan Dunuwila",
+        "position": "Vice President",
+        "image": "/images/board/2026-2027/tilan-dunuwila.webp"
+      },
+      {
+        "id": "secretary",
+        "name": "Janukshan Sivakumar",
+        "position": "Secretary",
+        "image": "/images/board/2026-2027/janukshan-sivakumar.webp"
+      },
+      {
+        "id": "asst-secretary",
+        "name": "Senuthi Amarasinghe",
+        "position": "Asst. Secretary",
+        "image": "/images/board/2026-2027/senuthi-amarasinghe.webp"
+      },
+      {
+        "id": "editor",
+        "name": "Amindu Rajamuni",
+        "position": "Editor",
+        "image": "/images/board/2026-2027/amindu-rajamuni.webp"
+      },
+      {
+        "id": "treasurer",
+        "name": "Nilakshi Madubashini",
+        "position": "Treasurer",
+        "image": "/images/board/2026-2027/nilakshi-madubashini.webp"
+      },
+      {
+        "id": "asst-treasurer",
+        "name": "Isiwara Wijesinghe",
+        "position": "Asst. Treasurer",
+        "image": "/images/board/2026-2027/isiwara-wijesinghe.webp"
+      },
+      {
+        "id": "asst-editor",
+        "name": "Chethana Indievarie",
+        "position": "Asst. Editor",
+        "image": "/images/board/2026-2027/chethana-indievarie.webp"
+      },
+      {
+        "id": "event-coordinator",
+        "name": "Janitha Gamage",
+        "position": "Event Coordinator",
+        "image": "/images/board/2026-2027/janitha-gamage.webp"
+      },
+      {
+        "id": "devops-lead",
+        "name": "Sathush Nanayakkara",
+        "position": "DevOps Lead",
+        "image": "/images/board/2026-2027/sathush-nanayakkara.webp"
+      },
+      {
+        "id": "development-lead",
+        "name": "Tharusha Sapuarachchi",
+        "position": "Development Lead",
+        "image": "/images/board/2026-2027/tharusha-sapuarachchi.webp"
+      },
+      {
+        "id": "community-advocate",
+        "name": "Oshada Fernando",
+        "position": "Community Advocate",
+        "image": "/images/board/2026-2027/oshada-fernando.webp"
+      },
+      {
+        "id": "workshop-coordinator",
+        "name": "Sajith Wickramasinghe",
+        "position": "Workshop Coordinator",
+        "image": "/images/board/2026-2027/sajith-wickramasinghe.webp"
+      },
+      {
+        "id": "program-coordinator",
+        "name": "Rashmika Jayanath",
+        "position": "Program Coordinator",
+        "image": "/images/board/2026-2027/rashmika-jayanath.webp"
+      },
+      {
+        "id": "media-coordinator",
+        "name": "Sishan Hewapathirana",
+        "position": "Media Coordinator",
+        "image": "/images/board/2026-2027/sishan-hewapathirana.webp"
+      }
+    ],
+    "2025-2026": [
+      {
+        "id": "president",
+        "name": "Pawan Senpura",
+        "position": "President",
+        "image": "/images/board/2025-2026/pawan-senpura.webp"
+      },
+      {
+        "id": "vice-president",
+        "name": "Asiri Jayawardena",
+        "position": "Vice President",
+        "image": "/images/board/2025-2026/asiri-jayawardena.webp"
+      },
+      {
+        "id": "secretary",
+        "name": "Sathnindu Kottage",
+        "position": "Secretary",
+        "image": "/images/board/2025-2026/sathnindu-kottage.webp"
+      },
+      {
+        "id": "asst-secretary",
+        "name": "Amaya Fernando",
+        "position": "Asst. Secretary",
+        "image": "/images/board/2025-2026/amaya-fernando.webp"
+      },
+      {
+        "id": "treasurer",
+        "name": "Dinithi Wickramaarachchi",
+        "position": "Treasurer",
+        "image": "/images/board/2025-2026/dinithi-wickramaarachchi.webp"
+      },
+      {
+        "id": "asst-treasurer",
+        "name": "Irushi Gunawardana",
+        "position": "Asst. Treasurer",
+        "image": "/images/board/2025-2026/irushi-gunawardana.webp"
+      },
+      {
+        "id": "design-lead",
+        "name": "Senith Udara",
+        "position": "Design Lead",
+        "image": "/images/board/2025-2026/senith-udara.webp"
+      },
+      {
+        "id": "event-coordinator",
+        "name": "Nipun Jayasinghe",
+        "position": "Event Coordinator",
+        "image": "/images/board/2025-2026/nipun-jayasinghe.webp"
+      },
+      {
+        "id": "program-coordinator",
+        "name": "Sandithi Nethsiluni",
+        "position": "Program Coordinator",
+        "image": "/images/board/2025-2026/sandithi-nethsiluni.webp"
+      },
+      {
+        "id": "development-lead",
+        "name": "Movindu Liyanage",
+        "position": "Development Lead",
+        "image": "/images/board/2025-2026/movindu-liyanage.webp"
+      },
+      {
+        "id": "media-coordinator",
+        "name": "Tilan Dunuwila",
+        "position": "Media Coordinator",
+        "image": "/images/board/2025-2026/tilan-dunuwila.webp"
+      },
+      {
+        "id": "community-advocate",
+        "name": "Janukshan Sivakumar",
+        "position": "Community Advocate",
+        "image": "/images/board/2025-2026/janukshan-sivakumar.webp"
+      },
+      {
+        "id": "devops-lead",
+        "name": "Sadeesha Perera",
+        "position": "DevOps Lead",
+        "image": "/images/board/2025-2026/sadeesha-perera.webp"
+      },
+      {
+        "id": "workshop-coordinator",
+        "name": "Kavishka Sashmitha",
+        "position": "Workshop Coordinator",
+        "image": "/images/board/2025-2026/kavishka-sashmitha.webp"
+      },
+      {
+        "id": "project-manager",
+        "name": "Pawara Sasmina",
+        "position": "Project Manager",
+        "image": "/images/board/2025-2026/pawara-sasmina.webp"
+      }
+    ],
     "2024-2025": [
       {
         "id": "president",

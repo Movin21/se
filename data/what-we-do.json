@@ -1,16 +1,10 @@
 {
   "upcomingEvents": [
     {
-      "id": "agm-2025",
-      "title": "Annual General Meeting 2025/26",
-      "image": "/images/events/agm-2025.png",
-      "link": "https://www.instagram.com/sliit.sesc/p/DJwIZRsIOmM/"
-    },
-    {
-      "id": "women-in-tech",
-      "title": "Women in Tech Workshop by Perituza",
-      "image": "/images/events/women-in-tech.png",
-      "link": "https://www.instagram.com/sliit.sesc/p/DJfzSa7SbIL/"
+      "id": "uiux-workshop-2026",
+      "title": "UI / UX Workshop powered by TSA Media Group",
+      "image": "/images/events/uiux-workshop-2026.jpg",
+      "link": "https://www.instagram.com/p/DeL5NxiDQme/"
     }
   ],
   "pastEvents": [
