@@ -12,7 +12,8 @@ const nextConfig = {
     remotePatterns: [],
   },
   output: 'export',
-  distDir: 'dist',
+  // Dev uses the default .next folder: a custom distDir isn't ignored by the dev file watcher, causing an endless recompile loop
+  distDir: process.env.NODE_ENV === 'production' ? 'dist' : '.next',
   assetPrefix: '',  // Empty string for root deployment
   trailingSlash: true,
 }
